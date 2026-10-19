@@ -1,5 +1,5 @@
 from typing import Any
-from fastapi import Body, FastAPI
+from fastapi import Body, FastAPI, Response
 from fastapi.responses import JSONResponse
 import uvicorn
 
@@ -52,6 +52,52 @@ def create_task(payload: dict[str, Any] | None = Body(default=None)):
     new_task = {"id": next_id, "title": title.strip(), "done": False}
     tasks.append(new_task)
     return new_task
+
+
+@app.put("/tasks/{id}")
+def update_task(id: int, payload: dict[str, Any] | None = Body(default=None)):
+    target = None
+    for task in tasks:
+        if task["id"] == id:
+            target = task
+            break
+    if target is None:
+        return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
+
+    if not isinstance(payload, dict) or ("title" not in payload and "done" not in payload):
+        return JSONResponse(
+            status_code=400,
+            content={"error": "Request body must include 'title' and/or 'done'"},
+        )
+
+    if "title" in payload:
+        if not isinstance(payload["title"], str) or not payload["title"].strip():
+            return JSONResponse(
+                status_code=400,
+                content={"error": "Title cannot be empty"},
+            )
+    if "done" in payload:
+        if not isinstance(payload["done"], bool):
+            return JSONResponse(
+                status_code=400,
+                content={"error": "'done' must be a boolean"},
+            )
+
+    if "title" in payload:
+        target["title"] = payload["title"].strip()
+    if "done" in payload:
+        target["done"] = payload["done"]
+
+    return target
+
+
+@app.delete("/tasks/{id}", status_code=204)
+def delete_task(id: int):
+    for i, task in enumerate(tasks):
+        if task["id"] == id:
+            tasks.pop(i)
+            return Response(status_code=204)
+    return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
 
 
 if __name__ == "__main__":
