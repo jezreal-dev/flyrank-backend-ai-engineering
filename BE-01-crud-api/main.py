@@ -137,7 +137,7 @@ def get_task(id: int):
 
 
 # ------------------------------------------------------------------------------
-# [Week 1/2 · Stage 3] CREATE ENDPOINT (To be wired to SQLite in Week 3 · Stage 2)
+# [Week 3 · Stage 2] DATABASE CREATE ENDPOINT (Replaces Week 1/2 list.append)
 # ------------------------------------------------------------------------------
 @app.post("/tasks", status_code=201, summary="Create a new task", tags=["Tasks"])
 def create_task(
@@ -151,7 +151,8 @@ def create_task(
         },
     )
 ):
-    """[Week 1/2 · Stage 3] Create a new task with a required non-empty `title`."""
+    """[Week 3 · Stage 2] Validate `title` (Week 1/2 rules) and insert new row into SQLite."""
+    # [Week 1/2 · Stage 3] Validation rules remain 100% unchanged
     if not isinstance(payload, dict):
         return JSONResponse(
             status_code=400,
@@ -163,10 +164,18 @@ def create_task(
             status_code=400,
             content={"error": "Title is required and cannot be empty"},
         )
-    next_id = max((t["id"] for t in tasks), default=0) + 1
-    new_task = {"id": next_id, "title": title.strip(), "done": False}
-    tasks.append(new_task)
-    return new_task
+
+    # [Week 3 · Stage 2] Insert into tasks.db using parameterized placeholders (?, ?)
+    clean_title = title.strip()
+    with get_connection() as conn:
+        cursor = conn.execute(
+            "INSERT INTO tasks (title, done) VALUES (?, ?)",
+            (clean_title, 0),
+        )
+        # SQLite automatically assigns the next INTEGER PRIMARY KEY id
+        new_id = cursor.lastrowid
+
+    return {"id": new_id, "title": clean_title, "done": False}
 
 
 # ------------------------------------------------------------------------------
