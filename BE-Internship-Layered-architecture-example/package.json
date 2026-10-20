@@ -1,0 +1,16 @@
+{
+  "name": "internship-crud-api-layered",
+  "version": "1.0.0",
+  "description": "The Assignment 1 CRUD API, refactored into layers (routes -> service -> repository). Same behaviour, separated concerns.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "author": "Flyrank",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
