@@ -40,6 +40,15 @@ def get_connection() -> sqlite3.Connection:
     return conn
 
 
+def row_to_task(row: sqlite3.Row) -> dict[str, Any]:
+    """[Week 3 · Stage 1] Convert a SQLite row (where done is 0/1) into the API's JSON dict shape."""
+    return {
+        "id": row["id"],
+        "title": row["title"],
+        "done": bool(row["done"]),
+    }
+
+
 def init_db() -> None:
     """[Week 3 · Stage 0] Create the tasks table if missing and seed 3 tasks only when empty."""
     # 'with get_connection() as conn:' automatically wraps these SQL statements in a transaction
@@ -88,7 +97,7 @@ def health_check():
 
 
 # ------------------------------------------------------------------------------
-# [Week 1/2 · Stage 2 & Stage 5] READ ENDPOINTS (To be wired to SQLite in Week 3 · Stage 1)
+# [Week 3 · Stage 1] DATABASE READ ENDPOINTS (Replaces Week 1/2 in-memory reads)
 # ------------------------------------------------------------------------------
 @app.get("/tasks", summary="List all tasks", tags=["Tasks"])
 def get_tasks(
@@ -97,8 +106,12 @@ def get_tasks(
     limit: int | None = Query(default=None, ge=0, description="Maximum number of tasks to return"),
     offset: int = Query(default=0, ge=0, description="Number of tasks to skip for pagination"),
 ):
-    """[Week 1/2 · Stage 2 & 5] Retrieve all tasks with optional filtering and pagination."""
-    result = list(tasks)
+    """[Week 3 · Stage 1] Fetch all tasks from SQLite (`SELECT * FROM tasks`) with optional filters."""
+    with get_connection() as conn:
+        rows = conn.execute("SELECT * FROM tasks").fetchall()
+    result = [row_to_task(row) for row in rows]
+
+    # [Week 1/2 · Stage 5] Optional query filters (will be upgraded to SQL WHERE/LIKE in Week 3 Extras)
     if done is not None:
         result = [t for t in result if t["done"] is done]
     if search is not None and search.strip():
@@ -113,11 +126,14 @@ def get_tasks(
 
 @app.get("/tasks/{id}", summary="Get a single task by ID", tags=["Tasks"])
 def get_task(id: int):
-    """[Week 1/2 · Stage 2] Retrieve a single task by its integer `id`, or return 404 if not found."""
-    for task in tasks:
-        if task["id"] == id:
-            return task
-    return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
+    """[Week 3 · Stage 1] Fetch one task by `id` using a parameterized query (`WHERE id = ?`)."""
+    with get_connection() as conn:
+        # '?' is a parameterized placeholder: passes (id,) safely as data, preventing SQL injection
+        row = conn.execute("SELECT * FROM tasks WHERE id = ?", (id,)).fetchone()
+    if row is None:
+        # [Week 1/2 · Stage 2] Keep the exact 404 error contract
+        return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
+    return row_to_task(row)
 
 
 # ------------------------------------------------------------------------------
