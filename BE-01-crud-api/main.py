@@ -76,9 +76,7 @@ def init_db() -> None:
 
 # [Week 3 · Stage 0] Run database initialization and seeding when the app starts
 init_db()
-
-# [Week 1/2 · Stage 2] Legacy in-memory list (being replaced stage-by-stage in Week 3 Stages 1-3)
-tasks: list[dict[str, Any]] = [dict(t) for t in STARTER_TASKS]
+# Note: The Week 1/2 in-memory `tasks` list has been completely retired in Week 3 · Stage 3!
 
 
 # ------------------------------------------------------------------------------
@@ -179,7 +177,7 @@ def create_task(
 
 
 # ------------------------------------------------------------------------------
-# [Week 1/2 · Stage 4] UPDATE & DELETE ENDPOINTS (To be wired to SQLite in Week 3 · Stage 3)
+# [Week 3 · Stage 3] DATABASE UPDATE & DELETE ENDPOINTS (Replaces Week 1/2 in-memory mutations)
 # ------------------------------------------------------------------------------
 @app.put("/tasks/{id}", summary="Update an existing task", tags=["Tasks"])
 def update_task(
@@ -194,15 +192,14 @@ def update_task(
         },
     ),
 ):
-    """[Week 1/2 · Stage 4] Update a task's `title` and/or `done` status by ID."""
-    target = None
-    for task in tasks:
-        if task["id"] == id:
-            target = task
-            break
-    if target is None:
+    """[Week 3 · Stage 3] Update a task's `title` and/or `done` in SQLite (`UPDATE tasks SET ... WHERE id = ?`)."""
+    # [Week 3 · Stage 3] 1. Check if the task exists in tasks.db
+    with get_connection() as conn:
+        row = conn.execute("SELECT * FROM tasks WHERE id = ?", (id,)).fetchone()
+    if row is None:
         return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
 
+    # [Week 1/2 · Stage 4] 2. Validate request body (rules remain 100% identical to Assignment 1)
     if not isinstance(payload, dict) or ("title" not in payload and "done" not in payload):
         return JSONResponse(
             status_code=400,
@@ -222,42 +219,57 @@ def update_task(
                 content={"error": "'done' must be a boolean"},
             )
 
-    if "title" in payload:
-        target["title"] = payload["title"].strip()
-    if "done" in payload:
-        target["done"] = payload["done"]
+    # [Week 3 · Stage 3] 3. Merge updated fields with existing row values and run SQL UPDATE
+    new_title = payload["title"].strip() if "title" in payload else row["title"]
+    new_done = payload["done"] if "done" in payload else bool(row["done"])
 
-    return target
+    with get_connection() as conn:
+        conn.execute(
+            "UPDATE tasks SET title = ?, done = ? WHERE id = ?",
+            (new_title, int(new_done), id),
+        )
+
+    return {"id": id, "title": new_title, "done": new_done}
 
 
 @app.delete("/tasks/{id}", status_code=204, summary="Delete a task by ID", tags=["Tasks"])
 def delete_task(id: int):
-    """[Week 1/2 · Stage 4] Delete a task by its integer `id`. Returns 204 No Content or 404."""
-    for i, task in enumerate(tasks):
-        if task["id"] == id:
-            tasks.pop(i)
-            return Response(status_code=204)
-    return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
+    """[Week 3 · Stage 3] Delete a task from SQLite (`DELETE FROM tasks WHERE id = ?`)."""
+    with get_connection() as conn:
+        cursor = conn.execute("DELETE FROM tasks WHERE id = ?", (id,))
+        deleted_rows = cursor.rowcount
+
+    # If rowcount is 0, no row matched that ID -> return 404
+    if deleted_rows == 0:
+        return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
+    return Response(status_code=204)
 
 
 # ------------------------------------------------------------------------------
-# [Week 1/2 · Stage 5] EXTRAS ENDPOINTS (To be upgraded to SQL in Week 3 Extras)
+# [Week 1/2 · Stage 5 & Week 3] EXTRAS ENDPOINTS (Backed by SQLite)
 # ------------------------------------------------------------------------------
 @app.get("/stats", summary="Get task statistics", tags=["Extras"])
 def get_stats():
-    """[Week 1/2 · Stage 5] Return counts of total, completed (`done`), and remaining (`open`) tasks."""
-    total = len(tasks)
-    done_count = sum(1 for t in tasks if t["done"])
+    """[Week 1/2 · Stage 5 / Week 3] Return counts of total, completed (`done`), and remaining (`open`) tasks."""
+    with get_connection() as conn:
+        rows = conn.execute("SELECT done FROM tasks").fetchall()
+    total = len(rows)
+    done_count = sum(1 for r in rows if r["done"])
     open_count = total - done_count
     return {"total": total, "done": done_count, "open": open_count}
 
 
 @app.post("/reset", summary="Reset tasks to starter data", tags=["Extras"])
 def reset_tasks():
-    """[Week 1/2 · Stage 5] Restore the task list to the original 3 starter tasks."""
-    tasks.clear()
-    tasks.extend(dict(t) for t in STARTER_TASKS)
-    return {"message": "Tasks reset to starter state", "tasks": tasks}
+    """[Week 1/2 · Stage 5 / Week 3] Restore the SQLite `tasks` table to the original 3 starter tasks."""
+    with get_connection() as conn:
+        conn.execute("DELETE FROM tasks")
+        conn.executemany(
+            "INSERT INTO tasks (id, title, done) VALUES (?, ?, ?)",
+            [(t["id"], t["title"], int(t["done"])) for t in STARTER_TASKS],
+        )
+        rows = conn.execute("SELECT * FROM tasks").fetchall()
+    return {"message": "Tasks reset to starter state", "tasks": [row_to_task(r) for r in rows]}
 
 
 if __name__ == "__main__":
