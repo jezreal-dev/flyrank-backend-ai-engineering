@@ -237,6 +237,9 @@ $ docker exec taskdb psql -U postgres -d tasks -c "SELECT id, title, done FROM t
  35 | Persistence Test: Survives docker compose restart | f
 (4 rows)
 ```
+
+![PostgreSQL Terminal Verification](./assets/postgres-db-proof.png)
+
 **Conclusion**: Because the PostgreSQL service mounts named volume `taskdata:/var/lib/postgresql/data`, all records remain intact across arbitrary container destroys, recreations, and engine reboots.
 
 ---
