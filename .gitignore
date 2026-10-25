@@ -1,23 +1,25 @@
-# Virtual environments
+# Virtual environments & dependencies
 .venv/
 venv/
 env/
+node_modules/
 
 # Python cache & bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Environment variables
+# Environment variables (keep .env secret, allow .env.example)
 .env
 .env.*
+!.env.example
 
-# OS files
+# OS & WSL files
 .DS_Store
 Thumbs.db
+*:Zone.Identifier
 
-# SQLite database files
+# Local SQLite database files
 *.db
 *.sqlite
 *.sqlite3
-

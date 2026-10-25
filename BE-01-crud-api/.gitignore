@@ -1,0 +1,18 @@
+# Virtual environments & dependencies
+.venv/
+venv/
+node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Secrets (never commit .env; always commit .env.example)
+.env
+.env.*
+!.env.example
+
+# Local SQLite files
+*.db
+*.sqlite
+*.sqlite3
