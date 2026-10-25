@@ -1,0 +1,65 @@
+# =============================================================================
+# FlyRank Backend AI Engineering — Week 3 (Assignment A3 / BE-04)
+# One-Command Local Stack: FastAPI API + PostgreSQL Database (+ Redis Stretch)
+# =============================================================================
+
+services:
+  # 1. FastAPI Application Service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: taskapi
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      # Internal network address: resolves to the `db` service container
+      DATABASE_URL: postgresql://postgres:dev@db:5432/tasks
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # 2. PostgreSQL 16 Database with Named Persistent Volume
+  db:
+    image: postgres:16
+    container_name: taskdb
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: tasks
+    volumes:
+      # Persistent named volume — data survives container destroy & rebuild
+      - taskdata:/var/lib/postgresql/data
+      # Initial SQL schema & seed script run on first volume creation
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      # Mapped to 5433 to avoid host collisions with existing native services
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d tasks"]
+      interval: 3s
+      timeout: 5s
+      retries: 5
+
+  # 3. Redis 7 In-Memory Cache (Stretch Goal: Week 4 Preparation)
+  redis:
+    image: redis:7-alpine
+    container_name: taskcache
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  # Named volume outliving the database container lifecycle
+  taskdata:
+    name: taskdata
