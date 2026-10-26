@@ -1,9 +1,11 @@
 {
-  "start_time": "2026-10-26T16:29:55Z",
-  "duration_seconds": 1.639,
+  "start_time": "2026-10-26T16:35:04Z",
+  "duration_seconds": 1.762,
   "pages_fetched": 0,
   "cache_hits": 63,
   "valid_records": 60,
   "invalid_records": 0,
-  "failed_pages": 1
+  "failed_pages": 1,
+  "changed_pages": 0,
+  "unchanged_pages": 63
 }
