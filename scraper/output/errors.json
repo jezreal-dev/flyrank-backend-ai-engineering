@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "product_url": "https://books.toscrape.com/catalogue/broken-book_9999/index.html",
+    "source_page": "https://books.toscrape.com/catalogue/page-1.html",
+    "reason": "https://books.toscrape.com/catalogue/broken-book_9999/index.html -> HTTP 404 (non-retryable client error)",
+    "stage": "detail_extraction"
+  }
+]
