@@ -60,6 +60,9 @@ pip install -r requirements.txt
 
 # 4. Run the scraper pipeline
 python src/main.py
+
+# 5. Run the unit test suite (Part 4 Extra)
+pytest tests/test_scraper.py -v
 ```
 
 Optional CLI flags:
@@ -77,7 +80,8 @@ All outputs are written to `scraper/output/`:
 | [`output/books.json`](output/books.json) | 60 cleaned, validated, idempotently deduplicated book records (keyed by canonical `product_url`) |
 | [`output/books.csv`](output/books.csv) | Spreadsheet-ready CSV export of the 60 validated book records |
 | [`output/errors.json`](output/errors.json) | Structured log of any invalid records or failed/skipped page URLs with exact error reasons |
-| [`output/run-report.json`](output/run-report.json) | Machine-readable run telemetry (`start_time`, `duration_seconds`, `pages_fetched`, `cache_hits`, `valid_records`, `invalid_records`, `failed_pages`) |
+| [`output/run-report.json`](output/run-report.json) | Machine-readable run telemetry (`start_time`, `duration_seconds`, `pages_fetched`, `cache_hits`, `valid_records`, `invalid_records`, `failed_pages`, `changed_pages`, `unchanged_pages`) |
+| [`output/page-hashes.json`](output/page-hashes.json) | SHA-256 content hashes for all 63 HTML pages to detect upstream HTML changes between runs |
 
 ### `BookRecord` Schema (`src/schemas.py`)
 
@@ -105,20 +109,24 @@ All outputs are written to `scraper/output/`:
   "cache_hits": 0,
   "valid_records": 60,
   "invalid_records": 0,
-  "failed_pages": 1
+  "failed_pages": 1,
+  "changed_pages": 63,
+  "unchanged_pages": 0
 }
 ```
 
-### Warm Rerun from Local Cache (Idempotency + Fault-Tolerance Verification)
+### Warm Rerun from Local Cache (Idempotency + SHA-256 Change Detection + Fault-Tolerance)
 ```json
 {
-  "start_time": "2026-10-26T16:29:55Z",
-  "duration_seconds": 1.639,
+  "start_time": "2026-10-26T16:35:04Z",
+  "duration_seconds": 1.762,
   "pages_fetched": 0,
   "cache_hits": 63,
   "valid_records": 60,
   "invalid_records": 0,
-  "failed_pages": 1
+  "failed_pages": 1,
+  "changed_pages": 0,
+  "unchanged_pages": 63
 }
 ```
 
@@ -136,3 +144,16 @@ All outputs are written to `scraper/output/`:
 - **What is still fragile or unfinished**:
   1. **CSS Selector Coupling**: `parse_catalogue_page()` and `parse_book_detail_page()` rely on Oscar e-commerce CSS selectors (`article.product_pod h3 a`, `ul.pager li.next a`, `article.product_page`, `#product_description + p`). If the site redesigns its template or renames classes, extraction will fail (though Pydantic validation and `errors.json` will catch it immediately instead of silently writing corrupt rows).
   2. **Cache Invalidation TTL**: Currently, cached HTML files in `cache/` persist until manually deleted (`rm -rf cache/`). In a scheduled production pipeline, cached pages should expire based on a configurable TTL (e.g., 24 hours) or HTTP `ETag` / `Last-Modified` conditional requests.
+
+---
+
+## 9. AI vs. Me (Bonus Stage B)
+
+In [`ai-version/scraper_ai.py`](ai-version/scraper_ai.py) (generated from the single prompt in [`ai-version/prompt.md`](ai-version/prompt.md)), the raw one-shot AI scraper made **6 critical engineering mistakes** compared to our staged pipeline:
+
+1. **Corrupted UTF-8 Currency Encoding (`"Â£51.77"` + Unparsed String Prices)**: Because `books.toscrape.com` omits `charset=utf-8` in its `Content-Type` header, `requests` defaults to `ISO-8859-1`. The raw AI script read `response.text` directly without setting `response.encoding = "utf-8"` and never parsed the price into a float, writing corrupted strings like `"Â£51.77"` instead of numeric `price_gbp: 51.77`.
+2. **Truncated Titles & Missing Descriptions (Never Visited Book Detail Pages)**: The AI script scraped `article.select_one("h3 a").text` from the listing card, saving truncated titles like `"The Dirty Little Secrets ..."` instead of visiting the 60 detail pages to extract the full `<h1>` title (`"The Dirty Little Secrets of Getting Your Dream Job"`), exact stock count (`"In stock (22 available)"`), and product `description`.
+3. **Zero Politeness (`No User-Agent`, `No Timeout`, `No Rate Limit`, `No Cache`)**: `requests.get(url)` was called in a tight loop with the default `python-requests/2.x` header, no `timeout` (risking an infinite hang), zero delay between requests, and no local `cache/`—re-hitting the live server on every run.
+4. **Hardcoded URL Loop & Brittle String Concatenation**: Instead of following `<li class="next"><a href="...">` and resolving relative links with `urllib.parse.urljoin`, the AI hardcoded `for page in range(1, 4)` and concatenated `"https://books.toscrape.com/catalogue/" + href`, which breaks immediately if a link starts with `../` or `/catalogue/`.
+5. **No Schema Validation or Idempotency**: The AI dumped unvalidated dictionaries directly to JSON without Pydantic validation (`BookRecord`), `source_page`, or `fetched_at` provenance.
+6. **Zero Fault Isolation**: A single `404`, `500`, or missing DOM node (`NoneType has no attribute 'text'`) crashes the entire AI script immediately and loses all progress, whereas our Stage 5 pipeline isolates per-page failures, logs them to `output/errors.json`, and reports run telemetry in `output/run-report.json`.

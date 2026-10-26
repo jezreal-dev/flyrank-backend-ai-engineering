@@ -8,6 +8,7 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 | :--- | :--- | :--- | :--- | :--- |
 | **BE-01 (W1/W2 · A1)** | Build Your First CRUD API | Python, FastAPI, Uvicorn | [`./BE-01-crud-api`](./BE-01-crud-api) | Complete |
 | **BE-02 (W3 · A2)** | Connecting Your CRUD to the Database (Layered + SQLite) | 3-Layer (`routes` $\rightarrow$ `services` $\rightarrow$ `repositories` + `database.py` SQLite) | [`./BE-01-crud-api`](./BE-01-crud-api) | Complete |
+| **BE-05 (W5 · A9)** | The Polite Scraper (3 Catalogue Pages $\rightarrow$ 60 Validated Books) | Python, `requests`, `beautifulsoup4`, `pydantic`, `pytest` | [`./scraper`](./scraper) | Complete |
 
 ## 2. Official Walkthrough Reference Codebases (Cloned & Included)
 
