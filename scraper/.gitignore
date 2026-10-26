@@ -1,0 +1,9 @@
+# Cached HTML pages (never commit hundreds of cached files)
+cache/
+
+# Python bytecode & virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
