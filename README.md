@@ -12,7 +12,7 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 
 ## 2. Week 5 Workshop Notes
 
-- [Scraping in Practice — From Messy HTML to Clean Data](./workshops/BE-S5-Web-Scraping-in-Practice.md): session takeaways, recording chapters, and how they map to BE-05.
+- [Scraping in Practice — From Messy HTML to Clean Data](./workshops/BE-S5-Web-Scraping-in-Practice.md): session notes, recording chapters, and the documented scope difference between the lecture exercise and BE-05.
 - [Watch the workshop recording](https://youtu.be/aQZKJOqrg2Q).
 - The scraper's implementation, run instructions, outputs, and tests are documented in [`scraper/README.md`](./scraper/README.md).
 
