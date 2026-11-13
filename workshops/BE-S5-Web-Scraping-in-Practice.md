@@ -14,7 +14,9 @@
 
 A scraper is another web client: it requests a page, reads the response with code, and keeps records. The session uses scraping to teach how the web works, not to imply every project needs a scraper. Before writing a parser, determine where the needed data lives, whether access is allowed, and what the response tells the client to do next.
 
-The lecture frames the work as **fetch → extract → normalize → validate → store → report**. A request returning `200 OK` is not proof that a scrape succeeded: a changed selector can produce zero records every night without causing an HTTP error. Validation and run reporting make that failure visible.
+The lecture places scraping in the backend data path: earlier work covered the API/front door, service/brain, database/shelves, caching, and authentication/authorization; scraping addresses how a system can obtain data when users or other systems do not provide it. It is taught as a way to see browser-hidden behavior—data sources, pagination, status codes, and browser automation—not as a requirement for every project.
+
+The lecture frames the work as **fetch → extract → normalize → validate → store → report**. A request returning `200 OK` is not proof that a scrape succeeded: a changed selector can produce zero records every night without causing an HTTP error. Validation and run reporting make that failure visible. The instructor stresses that this pipeline can be a few clearly separated functions in one file; it need not be an enterprise system.
 
 ## Find the data before choosing a tool
 
@@ -31,7 +33,7 @@ For the Network Panel demo, filter to Fetch/XHR, inspect a request, scroll to tr
 
 ## Permission, safety, and polite requests
 
-The presentation says several rule sets may apply—site terms, copyright, computer-access rules, and privacy law—and explicitly says the session is not legal advice. Its practical rule is to ask “may I?” before “how do I?”:
+The instructor says there is no universal yes/no answer and that several rule sets may apply—site terms, copyright, computer-access rules, and privacy law, depending in part on jurisdiction. The LinkedIn public-profile case is used to show why “public” does not settle the terms or privacy questions. This is explicitly not legal advice. The practical rule is to ask “may I?” before “how do I?”:
 
 - A public practice sandbox built for scraping is appropriate for bounded practice; still rate-limit requests.
 - A public page is not automatically free to collect. Check terms and minimize collection.
@@ -40,6 +42,8 @@ The presentation says several rule sets may apply—site terms, copyright, compu
 - A 403, challenge, or hard limit means stop. Do not copy browser headers to evade a block.
 - `robots.txt` is a machine-readable request: read and respect it, but do not mistake it for either a law or a permission slip.
 - Tokens are secrets. Never hardcode, paste, or commit them; rotate a token exposed in Git history.
+
+The recording adds a backend-security connection: observing a request does not itself grant permission to repeat it. Bypassing a login, replaying another person's session token, forging request signatures, or defeating a CAPTCHA crosses the line from ordinary collection into evasion or impersonation. These examples also explain why backend systems must protect sessions, use short-lived signed tokens, and handle authorization correctly.
 
 ## Pagination, extraction, and data quality
 
@@ -65,9 +69,11 @@ Validate each record before storage. Quarantine invalid rows with readable reaso
 
 The lecture recommends monitoring record count, missing-field rate, schema failures, and freshness. Track “last run” separately from “last successful run”. Make reruns idempotent by merging on a stable identifier, such as a canonical URL, rather than a display name.
 
+The instructor connects “silent zero” failures to other data pipelines too: for example, a Google Search Console or Analytics export can rename a field while the import job keeps running successfully and silently stops collecting that value. The validation playground demonstrates quarantining the malformed row, logging why it was rejected, and continuing with the other valid records.
+
 ## When browser automation is justified
 
-The presentation compares plain HTTP requests with Playwright, Puppeteer, and Selenium. A browser runs JavaScript and can scroll/click, but costs more memory and time per page and can leave crashed tabs or zombie processes. Choose it when the data truly exists only after JavaScript execution, when permitted logged-in interaction is required, or for UI testing. If using it, begin with one or two workers, measure, and block unnecessary images/fonts/analytics. Otherwise use the simpler HTTP request path. The slides recommend Playwright for learners who need a starting point.
+The presentation and recording compare plain HTTP requests with Playwright, Puppeteer, and Selenium. A browser runs JavaScript and can scroll/click, but costs more memory and time per page and can leave crashed tabs or zombie processes. Choose it when the data truly exists only after JavaScript execution, when permitted logged-in interaction is required, or for UI testing. If using it, begin with one or two workers, measure, and block unnecessary images/fonts/analytics. Otherwise use the simpler HTTP request path. The slides recommend Playwright for learners who need a starting point. The spoken explanation also highlights that learning these tools transfers to testing one's own UI.
 
 ## Lecture assignment map and this repository's scope
 
@@ -93,6 +99,7 @@ This repository's [BE-05 implementation guide](../scraper/README.md) documents a
 
 - [FlyRank portal event page](https://internship.flyrank.ai/intern/events/be-s5) (login may be required) — its attached Presentation_8 HTML deck contains slide content and instructor speaker notes. The user supplied the downloaded attachment for this review; it is not copied into this repository.
 - [FlyRank recording and description](https://youtu.be/aQZKJOqrg2Q) — public description and chapter markers.
+- User-supplied pasted transcript of the recording — used as the spoken-content source for this revision; the raw transcript is not copied into this repository.
 - [`The Polite Scraper` implementation guide](../scraper/README.md) — the project compared with the lecture's assignment map.
 
-This is a structured summary of the presentation, its embedded speaker notes, the portal description, and recording chapters—not a verbatim transcript of the video. YouTube caption retrieval returned rate limits/empty responses during research, so spoken material outside the deck and public description has not been transcribed or independently verified.
+This is a structured summary informed by the user-supplied transcript, the presentation and its embedded speaker notes, the portal description, and recording chapters. The transcript appears to be automatically generated and contains recognition errors; technical details were cross-checked against the slides where possible. The transcript is not reproduced verbatim in this repository. The speaker notes sometimes describe planned audience interaction or assignment steps; those are distinguished here from what the BE-05 code actually implements.
