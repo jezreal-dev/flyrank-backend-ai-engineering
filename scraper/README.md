@@ -1,5 +1,7 @@
 # BE-05 (Assignment A9): The Polite Scraper
 
+> Workshop context: [Scraping in Practice — From Messy HTML to Clean Data](../workshops/BE-S5-Web-Scraping-in-Practice.md). This README remains the canonical implementation guide.
+
 A small, polite, fault-tolerant web scraping pipeline built in **Python** (`requests`, `beautifulsoup4`, `pydantic`) that collects the first **3 catalogue pages (60 books)** from [`https://books.toscrape.com`](https://books.toscrape.com), visits every individual book detail page politely, normalizes messy HTML text like `"£51.77"` into numeric `price_gbp` (`51.77`), validates every record against a strict **Pydantic** schema, and survives broken pages without crashing.
 
 ---

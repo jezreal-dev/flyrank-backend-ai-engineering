@@ -10,14 +10,20 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 | **BE-02 (W3 · A2)** | Connecting Your CRUD to the Database (Layered + SQLite) | 3-Layer (`routes` $\rightarrow$ `services` $\rightarrow$ `repositories` + `database.py` SQLite) | [`./BE-01-crud-api`](./BE-01-crud-api) | Complete |
 | **BE-05 (W5 · A9)** | The Polite Scraper (3 Catalogue Pages $\rightarrow$ 60 Validated Books) | Python, `requests`, `beautifulsoup4`, `pydantic`, `pytest` | [`./scraper`](./scraper) | Complete |
 
-## 2. Official Walkthrough Reference Codebases (Cloned & Included)
+## 2. Week 5 Workshop Notes
+
+- [Scraping in Practice — From Messy HTML to Clean Data](./workshops/BE-S5-Web-Scraping-in-Practice.md): session takeaways, recording chapters, and how they map to BE-05.
+- [Watch the workshop recording](https://youtu.be/aQZKJOqrg2Q).
+- The scraper's implementation, run instructions, outputs, and tests are documented in [`scraper/README.md`](./scraper/README.md).
+
+## 3. Official Walkthrough Reference Codebases (Cloned & Included)
 
 | Reference Repo | Purpose in Week 3 Walkthrough (`https://youtu.be/FdhEiQ5I4q8`) | Folder |
 | :--- | :--- | :--- |
 | **`BE-A1-First-CRUD-API`** | Single-file Express CRUD baseline (`index.js` + `openapi.json`) showing why in-memory data disappears on restart and why single-file architecture becomes hard to maintain. | [`./BE-A1-First-CRUD-API`](./BE-A1-First-CRUD-API) |
 | **`BE-Internship-Layered-architecture-example`** | Refactored 3-Layer Architecture (`src/routes/`, `src/services/`, `src/repositories/`, `src/middleware/error-handler.js`, `src/errors.js`) demonstrating Separation of Concerns so swapping storage touches only the repository layer. | [`./BE-Internship-Layered-architecture-example`](./BE-Internship-Layered-architecture-example) |
 
-## 3. How the 3-Layer Architecture Maps Across Both Stacks
+## 4. How the 3-Layer Architecture Maps Across Both Stacks
 
 | Layer | Responsibility | Node.js Reference (`BE-Internship-Layered-architecture-example`) | Python + SQLite Assignment (`BE-01-crud-api`) |
 | :--- | :--- | :--- | :--- |
