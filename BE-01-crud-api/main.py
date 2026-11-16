@@ -14,6 +14,7 @@ import uvicorn
 from src.middleware.error_handler import register_error_handlers
 from src.repositories.tasks_repository import initialize_storage
 from src.routes.meta_routes import router as meta_router
+from src.routes.enrichment_routes import router as enrichment_router
 from src.routes.tasks_routes import router as tasks_router
 
 
@@ -32,6 +33,7 @@ def create_app() -> FastAPI:
 
     register_error_handlers(application)
     application.include_router(meta_router)
+    application.include_router(enrichment_router)
     application.include_router(tasks_router)
     return application
 
