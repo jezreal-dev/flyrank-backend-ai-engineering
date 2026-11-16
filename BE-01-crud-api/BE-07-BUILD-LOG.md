@@ -19,3 +19,19 @@ This log records implementation events as they happen. It is not a retrospective
 - Added contract tests for the schema, stub response, and field-specific validation errors. Test execution is pending the test dependencies and local database isolation check.
 - Iteration: the console-script form `./.venv/bin/pytest` failed collection with `ModuleNotFoundError: src` because it did not put the API directory on the import path. Switched to the documented module form `./.venv/bin/python -m pytest`; 10 endpoint/schema checks passed. Tests force the API onto a temporary SQLite database so they do not depend on the stopped PostgreSQL container.
 - Added an explicit 503 response for non-stub requests during this stage rather than allowing an unhandled exception. Stage 2 will replace this temporary path with the real client.
+
+## 2026-11-16 — Stage 2: versioned prompt and live client
+
+- Added `prompts/enrich-v1.md` with the role, exact schema, category meanings, uncertainty rule, and examples, including an instruction-like description.
+- Added the OpenRouter-compatible client and kept the scraped fields in a JSON-encoded user message, separate from the system prompt.
+- The endpoint now parses and validates JSON before returning it. This is a deliberate safety improvement over the PDF's temporary raw-text checkpoint; invalid output is not exposed while repair/quarantine are added next.
+- Added Compose environment mapping for the provider settings so the app container can receive values from the local `.env` without copying `.env` into the image.
+- Live-call checkpoint is still pending: no key exists in the local `.env`. Provider behavior is covered with a mocked response until the secret is configured.
+- Iteration: a first invalid-output test showed Pydantic included the invalid value in its validation error, which would have leaked the model text to the caller. Diagnostics now omit input values; only the private quarantine record retains the raw response. Endpoint tests pass (12/12) after Stage 2, then 15/15 after repair and quarantine were added.
+
+## 2026-11-16 — Stage 3: bounded repair and quarantine
+
+- Added exactly one repair call after JSON/schema failure. The correction request carries validation diagnostics with input values excluded.
+- After a second invalid response, the API returns a generic validation failure and appends the raw result, source record, prompt version, and timestamp to ignored local `logs/quarantine.jsonl`.
+- Added `LLM_ENABLED=false` kill switch. It returns a valid deterministic fallback without contacting the provider.
+- Verified repair success, exactly one repair on repeated failure, quarantine output, and kill-switch behavior with mocked provider tests. All 15 endpoint tests pass.
