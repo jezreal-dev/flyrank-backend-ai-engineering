@@ -1,0 +1,1415 @@
+The transcript for the video *Anes Paraganlija : Who is Watching the Robot? - AI Governance & Risk* is provided below:
+
+0:09 Hello everyone.
+0:11 Hope
+0:12 everything works and that you can see
+0:15 and hear me.
+0:18 Um, apologies for the slight delay.
+0:22 Thank you everyone for attending this
+0:24 session and
+0:26 um I'm happy to be part of this great
+0:29 mentorship program.
+0:31 Um so huge shout out to the fly rank
+0:33 team for making this possible and I hope
+0:37 you guys will enjoy the session have
+0:41 some good takeaways and we will dedicate
+0:44 some time in the end for
+0:47 um questions and answers. So whatever
+0:49 you have you can write it in the chat
+0:51 and we will address the questions later.
+0:54 So yeah my name is anes I work in AI
+0:59 governance and security
+1:01 and today we will be talking about
+1:03 exactly these topics which is AI
+1:06 governance security risk and compliance.
+1:10 Now this is a topic which is often slept
+1:14 on let's say because a lot of people do
+1:17 not really see the importance of all
+1:19 these topics and a lot of people also go
+1:22 with the mentality that um
+1:25 overregulation or governance kills
+1:28 innovation [clears throat] which of
+1:30 course if done wrong will be the case
+1:33 but today we will be talking about the
+1:35 importance of governance and how to
+1:37 properly do it. what are some important
+1:41 points and what are some possible future
+1:45 outlooks for you guys? So,
+1:48 um, [clears throat]
+1:50 knowing that you all come from
+1:53 universities or are currently studying
+1:55 or are very fresh in the job market, um,
+1:58 seeing that you're interested in these
+2:00 topics and AI in general, I'm pretty
+2:02 confident that you guys will be the next
+2:06 in line in the future to run AI, to
+2:09 manage AI, and to continuously develop
+2:12 it.
+2:13 So moving forward,
+2:17 first let's start with a question. Would
+2:20 you let an AI decide the outcome of your
+2:24 job interview, the outcome of your
+2:26 [clears throat] lo loan application for
+2:28 your house, apartment, or would you let
+2:31 it decide your exact medication for a
+2:34 certain sickness or condition you might
+2:36 have? Now, these are all some important
+2:38 questions we need to ask. And even
+2:40 though we have a lot of people who would
+2:42 outright answer yes, I'm sure we all can
+2:46 agree that this should not be the case
+2:48 because AI nowadays is not 100% correct.
+2:54 AI still has flaws and some can make
+2:59 mistakes and also it can present bias.
+3:02 So it can offer you biased decisions,
+3:04 biased outputs which do not go either in
+3:08 favor to the people or they do not
+3:11 represent the realistic state and
+3:14 scenario of the specific topic. So in
+3:17 this case, let's say you applied for a
+3:20 job and the company lets an AI
+3:22 completely sort out, analyze and screen
+3:25 your um job data. It lets the AI
+3:30 score your performance, score whether
+3:32 you are a good fit for the company or
+3:34 not, and they make the decision solely
+3:37 on the AI's output. Now, in this case,
+3:39 of course, some people might be favored,
+3:42 but a lot of people will also be
+3:45 possibly even discriminated and also
+3:48 meet with unfavorable conditions within
+3:51 these job interviews. So, why does this
+3:54 happen? Now nowadays in today's world we
+3:59 have AI already being used and
+4:02 implemented into various day-to-day
+4:05 scenarios such as courts where risk
+4:08 assessment algorithms are influencing
+4:10 and analyzing the sentencing the court
+4:13 details and the bail. With banks, we
+4:16 have also certain credit scorings, risk
+4:19 scorings, and models to decide who and
+4:23 how much you're qualified for a loan.
+4:26 And in employers, as I just mentioned,
+4:28 we will have AI systems running
+4:31 interviews, running screenings of your
+4:33 resume, CVs,
+4:35 and influencing the hiring outcome.
+4:39 [clears throat]
+4:41 So now we move on to the big question,
+4:43 who is watching the robot? Because if AI
+4:46 is doing all these decisions by itself,
+4:49 where
+4:51 who takes control of the decision? Who
+4:53 analyzes what the AI said? Who double
+4:57 checks whether these topics and outputs
+5:00 are true? And this is where governance
+5:03 comes in. So governance in this case one
+5:06 of a few applications. And I will not
+5:09 give you an outright definition but as
+5:10 we move slide by slide we will piece the
+5:13 definition of governance together with
+5:15 all these topics. So firstly
+5:17 [clears throat] let's start with laws
+5:20 and um human presence.
+5:24 So basically any powerful technology any
+5:28 innovation anything lifech changing have
+5:31 been has been regulated. So with cars
+5:33 eventually we got to a point where we
+5:35 got traffic laws. which medicine we got
+5:38 clinical trials. So before any medicine
+5:40 would be allowed to be put onto the
+5:43 market, it has to be um it has to
+5:47 complete certain clinical trials to
+5:49 determine the side effects and the use
+5:52 case um for the specific illness or
+5:55 condition. In aviation, we also have air
+5:58 traffic control. And now for all these
+6:00 topics, [clears throat] what is a common
+6:03 factor for them? It's people. it's
+6:06 humans. So for cars without the police
+6:09 force, without other um traffic uh
+6:13 employees and and then regulators
+6:16 um our traffic in most of the world will
+6:18 look terrible. There will be much more
+6:20 accidents. Same with medicine. We have
+6:22 these clinical trials, but who is
+6:24 completing them, who is conducting them,
+6:25 who is analyzing them? It's still
+6:27 humans. It's scientists, doctors, and so
+6:30 on. And then with aviation, the best
+6:32 example here would be the people
+6:34 [clears throat] sitting in the control
+6:36 towers tracking all the flights and
+6:38 checking um inbound and outbound
+6:40 flights, their paths, their routes, and
+6:43 making sure that no collisions happen,
+6:45 that nobody's late, and that everything
+6:48 goes on smoothly. So with AI, what we
+6:51 have um the regulations or the laws or
+6:56 the rules, they're happening right now.
+6:58 They're [clears throat] being developed
+6:59 as we speak. Some of them are already
+7:01 live and a lot of them are still in
+7:04 progress, but you're basically living
+7:07 this moment. So governance in this case
+7:09 is
+7:11 um someone who will have the last say,
+7:14 the last call with the decision to say
+7:18 okay, we can do this or no, we cannot do
+7:21 this because either it's not correct or
+7:23 it's not acceptable, whatever.
+7:26 [clears throat and cough]
+7:27 So for
+7:30 normal software for our traditional IT
+7:33 systems that we've known all our lives
+7:35 basically and we've used all our lives
+7:38 governance is a little bit different
+7:40 because with these softwares they only
+7:43 do what we tell them to do what we click
+7:45 what we execute what we trigger
+7:49 whereas AI isn't just purely that AI can
+7:53 be very unpredictable and can be also so
+7:56 autonomous in its decision- making, in
+7:59 its logic, and in its outputs. So for
+8:03 AI, as you know, I'm pretty sure
+8:04 everyone of you has used either chat GPT
+8:08 or another open um model on the web. So
+8:13 one single prompt is enough for it to
+8:15 give you a full elaboration on a certain
+8:18 topic or to give you a specific output
+8:22 uh a decision or a recommendation. Now
+8:26 al often it's just one sentence of you
+8:29 is enough to receive a full novel
+8:31 basically. So there is not a human
+8:34 sitting behind these screens and systems
+8:37 checking and proofreading every single
+8:39 sentence.
+8:40 Then we move on to opacity. Why does
+8:43 this happen? Because even the builders
+8:45 and developers cannot fully control and
+8:48 explain
+8:50 uh the specific outputs the AI makes. Of
+8:53 course with certain fine-tuning
+8:54 mechanisms with instructions and then
+8:56 then guard rails around it they can
+8:58 influence um the main behavior and the
+9:03 limits of the AI in which it behaves but
+9:06 it still cannot fully control it and
+9:08 predict it because most of these models
+9:10 and systems have been trained on
+9:12 billions and billions of data points.
+9:14 some of them which are uh over 20 years
+9:17 old and some of them which are very new
+9:19 and haven't even been um confirmed or
+9:23 proven. And then we move on to the third
+9:26 topic which is false confidence. So AI
+9:30 even when it makes a wrong call gives
+9:33 you an inaccurate answer, it will sound
+9:36 completely certain. It will sound
+9:38 completely true. And even sometimes when
+9:40 you ask it too elaborate, it will give
+9:42 you very very seemingly rational and
+9:46 logical explanations on why that is the
+9:49 case. So a lot of people will not
+9:51 question this. They will think, okay,
+9:53 this all makes sense. It is giving me
+9:55 all these explanations with such
+9:57 confidence. I don't even need to double
+9:59 check all this but the best example here
+10:02 would be to compare it with a
+10:04 calculator. Calculator if you enter an
+10:07 equation you will just get a correct or
+10:10 incorrect answer but with AI even when
+10:12 you get an incorrect answer it will give
+10:14 it to you with such confidence with a
+10:16 smile with with um 100%
+10:21 seemingly accurate but while it's not
+10:24 being accurate. So it is very important
+10:26 to keep these topics in mind and that's
+10:29 why governance is important to ensure
+10:31 that these things are minimized because
+10:34 it's pretty impossible to completely
+10:36 mitigate them but we have to minimize
+10:38 them and we have we need to have
+10:41 controls when they happen that we have
+10:43 some um mitigation plans and alternative
+10:47 plans to [clears throat] undo them to
+10:50 fix them and to make things right
+10:52 basically.
+10:54 So how does a how do AI risks show up in
+10:57 the real world? Now the most common of
+11:00 them are here on the screen. So we can
+11:03 first start off with bias and
+11:04 discrimination. So the best example here
+11:07 would be uh the one I just mentioned
+11:09 with um companies using AI assisted
+11:13 hiring tools. So in this case um an AI
+11:17 assistant which does the job interviews
+11:19 or job screening of your CVs resumes it
+11:22 will often favor certain characteristics
+11:26 such as the school you graduated from
+11:28 maybe even your gender maybe even your
+11:30 location maybe even um your age. It all
+11:34 depends on the data it has been trained
+11:36 on what it is and what it includes.
+11:38 [clears throat] Then we have
+11:39 hallucinations.
+11:41 These are things that we encounter
+11:44 almost daytoday in our AI usage. That's
+11:47 basically anytime you ask the to do
+11:50 something and it slightly deviates from
+11:52 the specific prompt or it starts giving
+11:55 you a completely wrong answer and
+11:58 building around it and explaining around
+11:59 it. So in this case [clears throat] we
+12:02 have an example of a lawyer being
+12:04 sanctioned for an AI invented fake case.
+12:08 Then we have privacy leakage.
+12:11 So depending on the training data the
+12:13 model has been trained on it will
+12:16 sometimes include sensitive or personal
+12:18 data. Now depending on the system and
+12:22 the model itself it is not impossible
+12:24 that these systems output these
+12:28 sensitive and personal data points and
+12:32 that is very prohibited by a lot of the
+12:35 laws we will be talking about and also
+12:37 it is a breach of privacy of the
+12:39 specific person. um whose data is being
+12:42 shared in that case. Next up, we have
+12:44 security exploits.
+12:46 So this is basically anyone and anything
+12:50 trying to tamper with the AI system to
+12:53 do something it definitely should not do
+12:56 either out of security reasons, out of
+12:58 ethical reasons or out [clears throat]
+13:00 out of design reasons because it's not
+13:02 what it was designed for. It's not the
+13:04 exact use case. So here we this can be a
+13:07 person this can be a team this can be a
+13:09 company this can even be um another AI
+13:12 system or tool and then we have the
+13:14 societal scale risk [clears throat]
+13:17 which is as you might know a lot of
+13:19 scammers and con artists are basically
+13:22 using AI to create deep fakes to create
+13:25 fake pictures and videos of their family
+13:28 members of some famous celebrities and
+13:31 send them these videos or pictures
+13:33 whatever to get them to send money to
+13:36 help them out. Or, hey, you just won
+13:39 something. If you send me $1,000, I can
+13:42 deposit it to you. These are scams that
+13:44 have been around for years, but now they
+13:47 just reached a whole new level where it
+13:49 looks very realistic with for people who
+13:53 are not really into all these
+13:55 technologies and up to date with AI,
+13:57 they will not question it. They will
+13:58 think it's definitely true.
+14:02 So, [clears throat]
+14:04 Um, a real case scenario what we have
+14:08 from what I just explained to you is
+14:10 Amazon in 2018 where the hiring AI
+14:14 taught itself bias by um downgrading
+14:18 resumes of women. So basically any women
+14:22 that would apply for a job in that case
+14:25 through this system would be downgraded
+14:28 or would be would receive um
+14:31 discriminative reviews and outputs.
+14:33 Therefore lessening their chances for um
+14:37 a successful job. How this happened is
+14:40 because the data it was trained on was
+14:43 dominated by male records. And as we
+14:46 know throughout [clears throat] history
+14:49 um there w there were times when most
+14:52 jobs have been dominated by men. And
+14:55 therefore by using this data and
+14:58 training the AI on these data points we
+15:02 will be left with a very very biased AI
+15:05 favoring only men basically.
+15:08 The next case which we have is um in Air
+15:12 Canada in 2024 where a simple support
+15:15 chatbot made a promise to the customer
+15:20 and the promise was around some kind of
+15:22 policy for a discount which didn't even
+15:25 exist. So the um Air Canada was never
+15:27 doing this but the chatbot had some kind
+15:30 of hallucinations and it told them hey
+15:33 we will give you this discount for
+15:35 whatever reason because you had an
+15:36 issue. Um, then Air Canada refused to
+15:40 give that discount. The customer sued
+15:43 and they won the case because the court
+15:46 didn't care. That system was employed by
+15:49 the company and the system told
+15:52 something to the customer. Whatever it
+15:54 told them, whatever promise it made, it
+15:56 had it has to be respected by the
+15:58 company. So even in these cases the
+16:02 company cannot just say oh no it was a
+16:06 mistake with the model it was a
+16:08 technical issue it was the algorithm it
+16:10 doesn't matter who deploys the system is
+16:13 who takes the blame basically for any
+16:16 anything that goes wrong.
+16:19 Now speaking of regulation and laws, one
+16:22 of the first and one of the most
+16:25 impactful and most critical um laws we
+16:28 have nowadays is the European Union's AI
+16:31 act. Um now this is a pretty long
+16:34 document with a lot of explanation with
+16:37 a lot of legal lingo but you do not need
+16:41 to know the full law by heart. Can
+16:44 always pull it out and check something
+16:46 but it's important that you understand
+16:47 the core of it. So in this case the core
+16:50 of the EUI act is its risk
+16:52 classification. It classifies AI systems
+16:55 into following four brackets. Starting
+16:58 off with minimal risk which is mostly
+17:00 simple small AI systems mostly
+17:03 regulating spam mostly uh included in
+17:06 some games. So these do not really pose
+17:09 any danger to the real world. So they
+17:12 are of minimal risk and we do not need
+17:15 to basically have any specific controls
+17:18 around it. Now moving on to limited
+17:21 risk.
+17:22 This is where it gets slightly
+17:24 different. It's still AI um and it's
+17:29 still not really harmful or not deemed
+17:32 dangerous. But limited risk AI systems
+17:35 are mostly systems that interact with
+17:37 people either internal from that company
+17:39 or external such as customers.
+17:42 [clears throat] So in that case it is
+17:44 always required to point out to anyone
+17:47 interacting with the AI system that they
+17:50 are interacting with the system. So we
+17:52 need to be completely transparent and
+17:54 disclose the presence of an AI system,
+17:57 the processing of the data, what it does
+17:59 and how it how it's doing it. And now
+18:03 moving on to high-risk systems. This is
+18:07 where the regulations kick in. So
+18:09 high-risk AI systems will be any system
+18:12 that um is employing or is used in a
+18:18 specific area, scenario or use case
+18:22 which can negatively affect a person. So
+18:26 this could be um a hiring AI for
+18:29 companies. This could be a credit
+18:31 scoring analyst for banks. This could be
+18:35 um a chatbot for diagnosis or medication
+18:39 in in a hospital or clinic. It and it
+18:42 could also be any AI that is working on
+18:44 law enforcement whether it was some kind
+18:47 of CCTV assisted AI or um some court um
+18:53 applied AI that helps the court bring a
+18:56 sentence or analyze the case. In this
+18:58 case, the EUI act mandates that all
+19:01 these systems must be first um applied
+19:06 and and and um contacted to the EU. So
+19:11 you have to basically report it yourself
+19:13 to the European Union so that they know
+19:16 there is a high-risisk AI system
+21:04 of these um controls and regulations,
+21:08 the fees are very very high. And we're
+21:11 talking about millions of euros in
+21:13 damages and fines or even up to 7% of
+21:18 global annual revenue of the company,
+21:20 which often for [clears throat] large
+21:22 corporations and companies will get into
+21:24 hundreds of millions or even billions of
+21:26 euros.
+21:29 [snorts]
+21:30 Now this is we will not spend too much
+21:32 time here um but just a quick review on
+21:36 what we have nowadays today in the
+21:39 world. So for the European Union we have
+21:41 the EU AI act. uh in the EU we also have
+21:45 the GDPR and some other um laws and
+21:48 controls but they have been around even
+21:50 before AI but the EUI act is um let's
+21:53 say an annex and it also so anything
+21:56 that was applicable previously to IT
+21:58 systems is still applicable to AI
+22:00 systems but now we also have this EU AI
+22:03 act that is additionally applicable to
+22:05 them then we have the United States we
+22:08 do not have a single unified law for
+22:10 this because it's fragmented based on
+22:13 states. So each state kind of has its
+22:16 own um sector and the jurisdiction to
+22:19 decide on the regulations and orders
+22:21 itself.
+22:23 Um but more or less some states um such
+22:27 as Illinois, such as California, they're
+22:30 kind of doing good progress into
+22:32 regulating AI in a similar way the
+22:34 European Union is doing it. Now when we
+22:37 move to China, one difference that we
+22:39 have with China comparing it to the
+22:42 other countries is that AI development
+22:45 is mostly steered and controlled by the
+22:47 state. So the state funds it, the state
+22:50 decides on its outcomes, um the
+22:53 applications, the use cases and also on
+22:56 the um regulations.
+23:00 Now in China, there are some regulations
+23:02 that are different than in in the rest
+23:04 of the world. Not all of them are bad.
+23:06 Some of them might be up for discussion
+23:09 but either way it works for them. And
+23:12 then last but not least we have the
+23:15 international standard which is ISO 4201
+23:19 and this is the first international
+23:22 standard on AI management. So for AI
+23:25 management systems it addresses AI
+23:27 governance, AI security, AI privacy, AI
+23:31 risk. A lot of these topics very
+23:33 important topics. It explains how to
+23:36 properly manage your AI systems, your AI
+23:39 inventory, your procedures and policies
+23:42 and ensure that basically you minimize
+23:45 the risk as much as possible and have a
+23:48 proper and good
+23:51 um system um deployed where everyone's
+23:55 happy and there's very very um small
+24:00 risk of any incident or any damage
+24:04 occurring.
+24:07 Now, um we have a quote. So, it says,
+24:10 "Every AI system is a bet on trust.
+24:12 Governance is how you make sure that bet
+24:14 pays off instead of blowing up in your
+24:16 face." And this is um something that's
+24:20 very important to mention because a lot
+24:21 of people will fight and argue that um
+24:26 governance is slowing down innovation.
+24:28 And it might even be true in a way where
+24:31 maybe a team needs two months to develop
+24:33 an AI system, but with all the
+24:35 additional governance and security
+24:37 controls and risk assessments we might
+24:39 have, it will take them another one
+24:42 month before deployment to make sure
+24:43 everything's fine. But how does it pay
+24:46 off? If everything's fine and if it's
+24:49 approved, then the company is can be
+24:51 relaxed with the AI system. Uh, it still
+24:54 needs to track it. It still needs to do
+24:56 cycles and reviews around it, but it can
+25:00 at least know what it's doing, how it's
+25:03 behaving, and protect itself proactively
+25:06 from any possible incident, um,
+25:09 reputation loss, client trust loss, or
+25:12 any loss or any fees and damages.
+25:16 So, now a short exercise for you guys.
+25:20 Um, now here it says in groups, but you
+25:23 can just do it individually. We will not
+25:25 spend too much time here. Uh we have to
+25:27 be mindful of the time. But take these
+25:30 four use cases of AI systems and try to
+25:33 classify them by
+25:35 um the risk brackets that we mentioned
+25:38 from the EU AI act. First we have the
+25:42 job applicant screener. Then we have the
+25:44 teen mental health chatbot. Then we have
+25:47 an insurance price setter. And then we
+25:49 have a student essay grader. So for all
+25:53 these four try to assign it a risk
+25:55 category either minimal, limited, high
+25:58 risk or unacceptable risk. I'll give you
+26:02 a few seconds. We cannot waste too much
+26:05 time.
+26:18 Okay. So to be fair with you there is no
+26:23 single answer single correct answer
+26:24 here. Um it all depends on the exact
+26:28 system on the exact use case what it is
+26:31 how it does it but usually and what we
+26:33 can say with almost high certainty is
+26:36 that all these systems have potential to
+26:39 be classified as high risk. Why? Because
+26:42 they are all affecting
+26:45 um something important to the people. So
+26:48 their decision could negatively affect
+26:50 their life. In the case of the job
+26:53 applicant screener, we already mentioned
+26:54 it. It could lose the opportunity of a
+26:57 good job because the AI made a mistake.
+26:59 um the teen mental health chatbot, it
+27:02 could go out of control the AI and it
+27:04 could start saying stuff that's not
+27:06 acceptable and not correct making um a
+27:10 very risky situation for both the
+27:12 deployer and the user because we do not
+27:16 know why why what they might do. And
+27:19 then for insurance price setter um the
+27:22 AI could be biased in the decisions.
+27:25 could um rate some topics and things
+27:28 much higher while some other others
+27:30 could be less all based on some
+27:33 preferences biased data or data favoring
+27:37 a certain area or a certain topic. And
+27:41 then for the student essay grader
+27:44 um it is it can affect the student's
+27:47 grades and therefore the students um
+27:51 uh the students general school success
+27:55 which can in turn affect how they behave
+27:58 how their mental health is and how uh
+28:00 will they succeed in the job market. So
+28:03 student essay grading through only AI is
+28:06 not a good thing unless it's just
+28:10 assisting the human reviewer to help it
+28:12 and then the human reviewer is signing
+28:14 off anything and double-checking
+28:16 anything the AI said.
+28:20 So that's it for most of the first
+28:23 session. Now the second session would be
+28:27 breaking and building trust. So as the
+28:30 title says we will be talking mostly
+28:32 about security and compliance.
+28:39 So security and compliance let me first
+28:40 start with telling you we all know what
+28:42 security is. We all know how it works.
+28:45 Um but security with traditional ID
+28:48 systems is still applicable to AI
+28:50 systems. But then we also have this
+28:52 additional layer of AI specific risks
+28:56 that are only exclusive to AI systems.
+28:59 So therefore we must be very careful
+29:02 about these systems and we must have a
+29:04 few more controls, guard rails and
+29:06 perhaps policies to ensure that these AI
+29:11 systems are protected, secure and
+29:15 running smoothly as intended.
+29:19 What are some ways to make an AI
+29:21 misbehave?
+29:22 Um, you probably most of you have heard
+29:25 about these, but let's go one by one.
+29:27 So, first we have prompt injection. A
+29:29 very common and famous um technique
+29:33 nowadays. What it does it it hides
+29:36 instructions in plain sight in a prompt
+29:39 the user sends out to the system trying
+29:42 to get the AI to do something it's not
+29:45 supposed to be doing. So trying to get
+29:48 it behave out of its designed
+29:49 boundaries. How to do this? It could
+29:52 even be a hidden command inside a
+29:55 picture you sent it. It could be um a
+29:58 coded message or um a blank message.
+30:03 Well, you hit the text in in in white
+30:05 color, let's say, whereas the remaining
+30:07 text text is black inside a document and
+30:10 so on. So there are m multiple ways to
+30:12 go by this. And these are some very very
+30:15 obvious and very simple ways to do it.
+30:18 Um now most of the companies nowadays
+30:22 are mitigating these successfully and
+30:24 having good guard rails around them but
+30:27 people are creative and some people are
+30:29 still finding ways to work around that.
+30:32 Then we have jailbreaking.
+30:35 That's basically manipulating the AI to
+30:39 skip its own safety rules and give you
+30:42 anything you might want. Be it some data
+30:45 it was trained on, be it some outputs
+30:47 you want to hear um which should not be
+30:51 given out to anyone, whatever. How to do
+30:54 jailbreaking. It's similar to prompt
+30:56 injection, but it includes a little bit
+30:58 more technical finesse. Perhaps it could
+31:01 be to call um try calling different
+31:04 URLs, APIs, hijacking them, basically
+31:08 trying to call the local host through
+31:10 the AI, accessing it, accessing the
+31:14 private data, the config files, reading
+31:16 it, um checking for API keys perhaps and
+31:20 then using these topics to hijack the
+31:23 system, to enter another system or to
+31:26 malwareize it into creating
+31:30 more chaos and a bigger issue. Then we
+31:32 have data poisoning. So in this case
+31:35 it's basically the system sending out
+31:38 and giving the training data to the
+31:41 people. Uh it is also including wrong
+31:47 uh let's say not biased data but um very
+31:51 very bad inaccurate and let's say
+31:54 unethical perhaps data that is included
+31:57 in the in the data sets that we're
+31:59 feeding into the system we're training
+32:01 the systems onto. So what do we get
+32:05 here? It's the same as if you wanted to
+32:07 cook a meal. If you take good fresh
+32:11 ingredients, the meal will most likely
+32:13 be tasty and good. But if you take spoil
+32:16 ingredients, outdated stuff, bad stuff,
+32:20 then most likely the meal will also be
+32:22 very bad, not tasty, and could even make
+32:25 you sick. So it's a similar approach
+32:27 with with AI models. with bad training
+32:30 data, inaccurate training data, um the
+32:33 AI will behave in bad ways, in unwanted
+32:37 ways, and in basically
+32:41 inaccurate outputs which nobody of us
+32:44 wants. Now moving on, we have model
+32:46 theft, which is
+32:49 um a way to steal the company's um
+32:54 either data set or logic of the system
+32:57 by repeating cleverly prompted and um
+33:01 combined prompts, queries or commands.
+33:04 Now this is a little bit more complex
+33:06 but some people what they do here or
+33:08 what they try to do is repeating the
+33:11 same prompt in different ways trying to
+33:14 work around a lot of guard rails and
+33:16 breaching the AI basically breaking it
+33:20 into loosening its restrictions and
+33:23 controls and accessing let's say the
+33:26 developers mode if it's accessible and
+33:31 get anything they might want to have out
+33:33 of the system. This can be then later
+33:35 used either to resell the system on the
+33:37 black market or to um blackmail the
+33:40 company by saying I will share
+33:42 everything if you don't pay me some
+33:43 ransom. And then we have other reserial
+33:46 examples which is probably together with
+33:48 prompt injection um one of the most
+33:51 common um out of these. So these are
+33:55 kind of invisible tweaks that the tool
+33:58 um tricking the tool into seeing
+34:00 something else while we know that it
+34:04 what we wanted to say. So this could be
+34:06 a very very simple example. What we can
+34:08 do in this case is um someone sending
+34:11 out a prompt and instead of some letters
+34:15 using um characters, symbols and and and
+34:19 and and numbers instead of letters,
+34:22 there are still a few numbers we can
+34:24 use. Let's say instead of an O, we use a
+34:26 zero. Instead of uh an E, we use the
+34:30 number three. So some people will try to
+34:32 skip and bypass the AI's restrictions,
+34:36 let's say for a profanity filter by
+34:39 spelling out um these words in a way the
+34:44 AI might not be able to detect. Now the
+34:46 good thing is most of the systems we
+34:48 have nowadays are well prepared against
+34:50 these type of type of things. So um this
+34:53 is a very simple and straightforward
+34:55 example.
+34:59 Now moving on. Um, and I see we have a
+35:02 message. The US has alleged that China
+35:05 did this model theft. Yes. Yes, it is.
+35:08 It is an ongoing discussion and fight
+35:11 basically between the two countries
+35:12 because nobody um nobody can explain how
+35:16 deepseek a Chinese company was able to
+35:19 create such a huge and good performing
+35:22 model in such a short time which with
+35:25 basically much much fewer resources than
+35:29 their American counterparts have done
+35:31 it. So of course the immediate response
+35:34 is someone must have stolen something
+35:36 but there is no proof for that. So
+35:38 that's very very tricky to prove but
+35:41 yeah these these cases are going on
+35:44 dayto-day basically and very good input.
+35:48 Now um for attacks and threats to our AI
+35:53 systems
+35:55 um we already have some let's say
+35:58 frameworks and and and protocols to
+36:02 watch and to follow in order to protect
+36:04 ourselves to protect our systems. So for
+36:07 instance uh the first one would be OASP
+36:10 top 10 for LLMs. This is short for open
+36:13 worldwide application security project.
+36:16 It is a nonprofit volunteerrun security
+36:18 community. Uh here the top 10 refers to
+36:21 the top 10 most critical LLM
+36:24 vulnerabilities. So it's basically a
+36:26 checklist when we develop a system or a
+36:28 large language model whatever we will go
+36:30 through these at least 10 um critical
+36:33 vulnerabilities and make sure that we
+36:36 have controls or mitigation plans around
+36:38 them to protect the system. Um then the
+36:42 other one is my Atlas.
+36:45 This is
+36:47 um an adversarial threat landscape
+36:50 and it is basically a group behind ATN
+36:54 CK so attack um it maps real documented
+36:58 attacks on AI systems and it shows how
+37:01 they unfold. So it is basically a
+37:04 practical guide on how to um take
+37:09 real attacks that have happened, how to
+37:11 prepare against them, how to proactively
+37:14 protect your company and your systems
+37:16 against them. So basically one tells you
+37:18 what to test and the other tells you how
+37:20 the attack happens and how it unfolds.
+37:25 Now this might be interesting to all of
+37:29 you and I'd like you to focus now. So
+37:33 red teaming a very important topic
+37:35 especially when we talk about AI systems
+37:38 and AI security. So red teaming would
+37:42 basically be paying someone to try and
+37:45 break your AI on purpose and report it
+37:49 back to you how they did it, what they
+37:51 did, and what was the outcome. Why?
+37:53 because you don't want the real attacker
+37:55 to do it and to corrupt your data, to
+37:58 corrupt your assistance company, to get
+38:01 you in a tight spot, to get you in a bad
+38:04 situation with clients, with regulators,
+38:06 whatever. So, it could be an internal
+38:09 team of uh people who are doing
+38:11 penetration testing and security
+38:13 testing, but it could also be an
+38:14 external company.
+38:16 How to do this? It's basically all the
+38:19 techniques we have been mentioning so
+38:21 far. the these attackers will simulate
+38:24 them and try to break the AI and see
+38:28 what where we have a risk and where we
+38:31 are good and protected.
+38:33 So, a real style test scenario is can
+38:35 the bot be tricked into revealing its
+38:37 internal instructions, let's say the
+38:39 config file? Can it be talked into an
+38:42 unauthorized discount for let's say a
+38:44 chatbot? And can it be baited into
+38:46 saying something the brand never would?
+38:48 It could even be as simple as one bad
+38:51 word, some profanity, and it would be
+38:53 enough to ruin the company's reputation.
+38:58 Now um what I would like you to do is
+39:02 write down this link that I have here.
+39:05 So CTF.archx.ninja
+39:08 that is a free
+39:11 um web page which includes a simulation
+39:16 on real AI testing. So what I just
+39:19 mentioned red teaming in style of
+39:21 capture the flags. So you will be
+39:23 presented with multiple levels and tiers
+39:26 and tasks and it will tell you okay the
+39:30 uh this AI system it's mostly like chat
+39:32 bots is designed to help a customer it's
+39:35 designed to score a loan or whatever and
+39:39 then you will try by through various
+39:42 prompts to break the AI and the goal is
+39:46 to reveal the flag which is usually
+39:49 coded as flag dot uh dash than a number.
+39:53 And if you succeed into retrieving that
+39:56 flag, it will either detect it
+39:58 automatically or you have to manually
+40:00 enter it. You basically pass the level.
+40:03 You get to take some um lessons learned,
+40:06 best practices, and recommendations for
+40:08 this. So, it's a really good thing to
+40:10 practice your skills to see how it plays
+40:13 out in the real world. And it it doesn't
+40:16 just include um prompts and queries. It
+40:20 also includes accessing the console in
+40:22 your browser and sending out JavaScript
+40:25 commands and and and notes to try and
+40:28 access the the the system itself. It's
+40:32 really cool and it's really fun. It's
+40:33 kind of designed like a little game with
+40:35 levels.
+40:38 Now moving on, what we have around
+40:42 shadow AI. So shadow AI, some of you
+40:45 might know the term, some of you might
+40:46 not, but it refers to invisible AI
+40:50 systems basically. So these are systems
+40:53 that the company does not know are being
+40:56 used in the company. So they are not
+40:58 approved. They did not go through any
+41:01 screening, any reviews, any vendor or
+41:04 security testing. But the people are
+41:07 using it out of their own free will
+41:09 basically. So this is something that's
+41:14 probably happening in maybe every
+41:17 company in the world. Um people will be
+41:20 using the larger the company the higher
+41:21 the risk of course but people will just
+41:23 go and use some um AI that's accessible
+41:27 on the web and just you know type some
+41:29 stuff hope that they will make their
+41:32 work easier. How can this happen? A
+41:34 support representative working for a
+41:36 customer service line will paste a
+41:41 contract from a real customer into
+41:43 public chatbot to get a quick summary.
+41:45 Now, what the thing is with public chat
+41:46 bots is they can and it says that in the
+41:50 user agreement and the disclaimer, it
+41:52 can take your prompts and your chats to
+41:54 continuously train itself. So if you did
+41:57 that, it could in a few days or weeks um
+42:00 use the customer's personal information
+42:03 out of this contract and send it
+42:04 somewhere, show it somewhere. So it
+42:06 would be a very high breach. Um it it
+42:09 could also be an engineer pasting um
+42:12 confidential code from a system into an
+42:14 AI assistant or chatbot to debug it or
+42:17 do something.
+42:19 And it could also be um the HR
+42:23 department running candidate CVs through
+42:25 a free accessible AI screening tool.
+42:31 Nobody has literally approved. So the
+42:34 problem here is you cannot have
+42:36 governance over something you don't know
+42:38 exists or is being used. So mostly the
+42:43 first job of AI governance is to assess
+42:46 the AI inventory, the AI systems list.
+42:49 What do we have? What are we using?
+42:51 Where are we using it? For what? And who
+42:54 is in charge of each system? Then that's
+42:57 the first step. Then we move on to the
+42:59 next steps basically.
+43:02 So now we have um documentation
+43:07 something that nobody of us likes to
+43:09 talk about. somebody that no none of us
+43:12 likes doing but it's very very
+43:15 important.
+43:16 Um everything that we're talking about
+43:20 right now needs to be written down
+43:22 somewhere. Be it governance, be it risk,
+43:24 be it compliance, we have to
+43:26 [clears throat] describe it, we have to
+43:28 document it and we have to keep track of
+43:30 it. How do we do it? So one way is to
+43:33 have policies. Policies a company must
+43:36 follow. policies that dictate
+43:39 uh what to do and how to behave in
+43:42 certain situations. What are some
+43:44 requirements that we might have for a
+43:46 specific action, a specific department,
+43:49 a specific product system, whatever it
+43:52 is. Oh, these are basically the rules,
+43:56 what's allowed and what's who who gets
+43:58 to decide it. Then we have procedures or
+44:01 process documents which is basically
+44:04 guides and and then step-by-step
+44:06 instructions
+44:08 um on how to complete something and do
+44:11 something. Why it's easier? Everyone can
+44:13 access it. Everyone can see it and we
+44:15 streamline the process and we try to
+44:17 take the best process for this specific
+44:20 use case.
+44:22 So it
+44:24 um helps everyone. It's quick. it's
+44:28 documented and we can explain it. We
+44:32 have business justification why we
+44:34 should do it that way. You know, let's
+44:35 say I want to receive user access to a
+44:38 specific system. Most of us will just
+44:41 contact the team responsible and call
+44:44 them, hey, can you give me access to to
+44:46 this system? Why it's not good is
+44:49 because we don't have a documented we
+44:52 don't have documented track of who is
+44:55 requesting access and for what reason.
+44:58 If we had a process that would be
+45:00 different then let's say the process
+45:02 says you have to send out an email to
+45:04 this person [clears throat] or this team
+45:06 and use this template which is why do
+45:08 you need it uh for what time period do
+45:11 you need it? who approved of it and so
+45:13 on and then they will analyze it, they
+45:15 will save it and then they have
+45:16 documented logs on who gets access and
+45:19 for what reason. This is also important
+45:21 for audits. Now moving on to data
+45:24 architecture, system architecture and
+45:26 overall anything regarding the system
+45:29 itself, the model itself. It is very
+45:33 important to have documentation that
+45:35 explains how the system works, what's
+45:38 the logic, what are the components, what
+45:40 are the technical uh stack components
+45:43 such as programming languages, APIs,
+45:47 um deployment services, it could be
+45:50 anything and everything basically, but
+45:53 make it short. um a document that shows
+45:57 each and every part of the system how it
+46:00 works where it works and through what
+46:04 means. Why is this important? It's
+46:06 important because if in one or two years
+46:10 the team who was managing the system
+46:12 leaves the company then the next team to
+46:16 take charge of it will [clears throat]
+46:18 need to understand how it works, what it
+46:20 does so that they can take care of it
+46:22 and manage it. Then also for um
+46:26 regulatory reasons. If auditors come in
+46:30 to check the system to see if
+46:31 everything's fine, they will want to see
+46:33 this architecture. They will want to see
+46:35 this documentation to make sure okay
+46:38 this is all in line with the regulations
+46:40 and applicable laws that this company
+46:42 has. So no, we're good. We don't need to
+46:45 issue any fines or any punishments
+46:48 basically. And when we speak about data
+46:51 um this is also very important because
+46:53 we want to know where the data comes
+46:56 from. How do we insert the data in the
+47:00 system? How is it being processed and
+47:03 how is it being represented to the end
+47:05 user? Then we also want to know where
+47:08 does it go afterwards. Is it simply
+47:09 deleted or stored? If it's stored, we
+47:12 want to know for how long? What's the
+47:13 data retention? So these are all topics
+47:16 that matter a lot because some clients
+47:18 will want you to save the data so they
+47:20 can review it. Some clients will want
+47:22 you to delete it because they don't want
+47:24 anyone else owning or having their data
+47:26 in their systems.
+47:28 And a lot of clients will want to know
+47:32 how these systems use data, what types
+47:36 of data. So I can tell you from real
+47:38 experience is most of the clients will
+47:42 ask you these questions. They will want
+47:44 to know what data you're using, how
+47:46 you're using it, why you're using it,
+47:48 where does it go, how is it being
+47:50 processed and so on. So it is very
+47:52 important for you to understand this
+47:54 part and to be able to document it and
+47:57 present it in a way.
+48:00 [sighs]
+48:01 Now next up we have compliance. So
+48:05 compliance would basically be proving
+48:08 that you're doing everything right and
+48:10 everything as it was described by a law
+48:13 by applicable obligations regulations
+48:16 whatever. So we can we have here a cycle
+48:19 a cycle which goes basically round and
+48:23 round indefinitely. So we start with
+48:25 assessing the system or the specific
+48:28 topic after we assess it we control it.
+48:32 So we take on
+48:35 the risks that we might have in the
+48:37 system and we try to enforce and employ
+48:41 some guardrails and security mechanisms
+48:43 to protect it. Then we move on to
+48:46 monitoring which is any monitoring means
+48:50 to know to log and keep track of what
+48:53 the system is doing. It could be um
+48:56 uptime logs, it could be usage logs, it
+48:59 could be requests sent and received and
+49:02 uh data stored, whatever. But it's
+49:06 important that we log these things
+49:07 because if anything goes wrong, we want
+49:09 to be able to access these logs to
+49:13 backtrack the issue, identify it, and
+49:16 make sure we mitigate it and fix it.
+49:19 Then we move on to auditing.
+49:21 Auditing is a crucial piece here because
+49:24 we either get the internal audit team
+49:26 from our company or external auditors
+49:29 to check out all the systems, the
+49:34 requirements and whether we're
+49:36 compliant. Now the audit will give us
+49:38 huge insight into how we are operating
+49:42 as a company, how the system is behaving
+49:45 and if we have any gaps and if we need
+49:47 to fix something and mitigate something.
+49:50 So the auditors will basically take on
+49:53 steps one, two and three, sum them up
+49:56 and give us
+49:58 um insights around them. And then number
+50:00 five would be improve any gap and any
+50:04 issue that might have been identified in
+50:07 the previous steps. Once we're done with
+50:09 that, it doesn't end. We just go back to
+50:11 square one and start all over again. Now
+50:14 of course you will not be doing this
+50:15 every day but most companies will have
+50:17 review periods or cycles and uh
+50:20 depending on the system on the industry
+50:22 on the vertical the company is acting on
+50:25 it could be monthly it could be
+50:27 quarterly it could be annually it also
+50:29 depends on the specific regulations
+50:31 applicable to this system
+50:35 now
+50:37 ISO 4201
+50:39 a very important piece of documentation
+50:43 we have nowadays. This is the first
+50:46 world's first international management
+50:48 system standard
+50:50 for artificial intelligence systems. So
+50:53 you might have heard about ISO 27,01
+50:57 which is um the standard for information
+51:01 technology management systems.
+51:04 uh and now this one is similar to it but
+51:10 with the difference that it focuses on
+51:12 AI.
+51:14 So um this standard and set of
+51:18 requirements or rules is basically
+51:20 basically quality and safety management
+51:22 system. How an organization builds,
+51:25 deploys and monitors AI systems. It
+51:30 doesn't include only the product itself.
+51:32 It includes the whole company. It
+51:35 includes how what kind of policies the
+51:37 company has. Are the people compliant,
+51:39 the users, the developers, the
+51:41 deployers, the managers, everyone has to
+51:44 follow specific rules and play their
+51:47 part into being compliant with this set
+51:49 of standards. So this one uh ISO is I
+51:53 believe right now the youngest
+51:55 um standard released and it was released
+51:58 in December 2023.
+52:01 Um, as of now, uh, we don't really have
+52:04 a specific and exact number, but around
+52:07 300 companies have it as of now. And
+52:11 most companies are just doing minimizing
+52:14 the scope and auditing one product at a
+52:17 time because
+52:19 um, it takes quite a long time and it is
+52:21 quite a detailed review. Now what I can
+52:24 recommend you is knowledge about this
+52:27 will definitely put you up in the job
+52:29 market especially in companies who care
+52:32 and put high value in compliance.
+52:35 There are also some courses on ISO 4201
+52:39 implementation.
+52:41 So it's something definitely worth
+52:43 exploring. So
+52:48 now moving on from ISO 420,0001
+52:53 um we also have NIST AI RMF which is the
+52:58 National Institute of Standards and
+52:59 Technology the AI risk management
+53:02 framework. So it is a US framework it's
+53:04 free and it's widely used and accepted
+53:08 as a let's say pioneer in AI risk
+53:11 management. uh we have four functions
+53:13 which is govern, map, measure and manage
+53:17 and it runs the system dayto-day within
+53:20 the team. So it is definitely also a
+53:23 very good playbook to follow to learn
+53:25 and to apply to your company to your
+53:28 work environment and your products.
+53:31 Whereas ISO will be would be a
+53:34 certifiable standard. Once you implement
+53:38 all the topics and requirements around
+53:40 ISO, you will call in an external
+53:43 um certified company to complete the
+53:46 audit on the certification. So an
+53:48 auditor will certify you against it.
+53:50 Then you have to do yearly cycles of
+53:53 reviews. Then later on reertifications
+53:55 to ensure that you can still keep the
+53:57 certificates. So as I mentioned
+54:00 previously, it's a cycle. It goes once
+54:02 you finish one cycle, you go back to
+54:04 square one and assess um secure,
+54:07 control, improve and so on.
+54:12 Yes. Basically, so at the end of the
+54:14 day, this is accountability and these um
+54:17 all these topics I'm talking about are
+54:19 very very uh connected together. So and
+54:23 it all links also to accountability to
+54:25 responsibility to acceptable and
+54:28 responsible use of AI and development of
+54:31 AI which are very important topics
+54:34 nowadays.
+54:36 Now something that might be interesting
+54:38 for all of you why AI governance
+54:42 is
+54:44 what do you have with AI governance in
+54:46 today's job market in today's world
+54:48 world uh the thing is this specific
+54:53 area this specific area of expertise is
+54:58 not that common nowadays
+55:01 most of the people you know and we all
+55:03 know are either
+55:05 devel developers,
+55:07 um, prompt engineers, you know, some
+55:10 roles specific to the technical side of
+55:12 AI. But when we speak about AI
+55:14 governance and AI compliance, there are
+55:17 not a lot of people. But that's also
+55:19 because all of this is pretty new and
+55:23 people are still learning their way
+55:25 around it, trying to build themselves
+55:29 with these topics and trying to place
+55:31 themselves on the job market. Now one
+55:33 misconception that you might have you
+55:36 don't really need any specific area of
+55:39 expertise or degree for this but if you
+55:43 have let's say any of the following law
+55:45 psychology policy business security and
+55:48 data science or in that fact any
+55:51 technical um
+55:54 uh technical area familiar to machine
+55:57 learning you would definitely be
+56:00 a good candidate for such a role. If you
+56:04 have two or more of them combined within
+56:07 your area of expertise, within your
+56:09 experience, within your CV, that's even
+56:11 better because it opens up much much
+56:13 more doors. So with law, we have all
+56:16 these regulations and laws that are
+56:19 being made nowadays like the EUAI act
+56:21 like um the other ones in the US like
+56:25 the one in China and so on. Then with
+56:27 psy psychology we have assisting the
+56:30 product teams to ensure that the AI is
+56:34 unbiased. It does not discriminate. It
+56:36 makes ethical decisions and then also
+56:38 provides some um fine-tuning expertise
+56:43 to be
+56:45 psychologically acceptable in nowadays
+56:48 world. Then for policy as mentioned all
+56:50 it's all documentation. All policies,
+56:53 documents, procedures, anything we do,
+56:55 we must document it. Anything we want to
+56:58 do, we must document it. Then business
+57:01 again all these AIs are being deployed
+57:04 with mainly one reason it's to generate
+57:07 revenue. So that's where business kicks
+57:10 in. Security, we were just talking about
+57:12 it. So um red teaming assessing the AI
+57:17 for vulnerability the vulnerabilities
+57:19 and checking whether they are secure
+57:23 whether the data is protected and
+57:25 whether our end users are protected as
+57:27 well as the company and data science.
+57:30 This one can be applied anywhere
+57:31 basically in this matter of fact because
+57:35 um we have model training, we have data
+57:38 preparation, we have
+57:41 um reviewing the system, reviewing the
+57:43 model, um fixing some data points,
+57:47 fine-tuning, prompt engineering. So
+57:50 literally anything now this is a very
+57:53 very the demand for this role is very
+57:56 fast growing and even if you go on
+57:58 LinkedIn and put take just a continent
+58:01 or a country and put in job search AI
+58:04 governance or AI compliance or security
+58:07 whatever you will get quite a lot of job
+58:09 offers and the difference between these
+58:12 job offers and similar ones in
+58:15 traditional IT will be the number of
+58:18 applicants
+58:19 For AI specific ones, you will have a
+58:22 few dozen, maybe 100 applicants, whereas
+58:25 for traditional IT applications, it will
+58:28 be hundreds, maybe even thousands,
+58:30 depending on the country, of course.
+58:34 Um, so yeah, and we have another
+58:36 comment. Uh, designers also need to have
+58:39 at least the basic sense of these laws
+58:41 so that they don't cross boundaries of
+58:43 risky compliance. Yes. And one important
+58:45 thing and that's also mentioned in ISO
+58:47 and a lot of clients are asking about it
+58:49 is how is the solution or DI system
+58:52 designed can people with disabilities
+58:55 freely use it and access it. So this is
+58:58 also a very important topic to address
+59:00 with the UIUX team designers to have the
+59:05 AI designed in a way where it's
+59:08 accessible by everyone where it's
+59:09 understood by everyone but also in a way
+59:12 that uh we do not try to hide the fact
+59:15 that they're interacting with an AI
+59:17 system. We want the people to know for
+59:21 ethical reasons that they are
+59:22 interacting with an AI system and that's
+59:25 also very important.
+59:29 Now your starter toolkit. So these are
+59:33 some points where you can start already.
+59:36 First off
+59:38 go into the documentation we have
+59:40 mentioned. So NIST AI, the EU AI act,
+59:44 OASP top 10 and ISO for 2001. Take them,
+59:49 read them, understand them and see
+59:51 what's important. see what the companies
+59:55 need to take care of where the gaps are.
+59:59 Then next up we have your practical
+1:00:02 examples. So the link that I showed you
+1:00:05 um CTF.archx.ninja
+1:00:08 Ninja, which gives you an opportunity to
+1:00:11 test these systems for adversarial
+1:00:13 attacks and prompt injections to see how
+1:00:16 they behave, to basically roleplay you
+1:00:20 being a security tester or employee for
+1:00:23 an AI company.
+1:00:25 Now learning again once you do step one
+1:00:29 and step two you learn you go and for
+1:00:32 instance the findings you had and the
+1:00:34 lessons learned you apply them and map
+1:00:37 them into the OS top 10 into the mitro
+1:00:39 atlas um topics you see where they um
+1:00:43 fit in how to mitigate them how to
+1:00:45 remediate them. you look for um
+1:00:48 recommendations on what are some good
+1:00:51 controls against this type of risk
+1:00:53 against this type of issue or incident
+1:00:56 and then follow which is basically your
+1:00:59 online presence. So we're all doom
+1:01:02 scrolling probably every day. So just go
+1:01:04 ahead you know on X on Instagram on
+1:01:08 LinkedIn find some knowledgeable people
+1:01:10 or find a blog um who share these topics
+1:01:15 who share some news about these things
+1:01:18 follow them be up to date you know
+1:01:22 that's very important today to be up to
+1:01:24 date to see to be the first one to catch
+1:01:26 a change to see okay something new
+1:01:28 appeared on the market but also
+1:01:30 something new appeared in terms of laws
+1:01:33 and regulations.
+1:01:35 So again, back to what I told you, you
+1:01:38 don't need to have a specific job to
+1:01:42 start this. You can start this from any
+1:01:46 area. All you need is time, of course,
+1:01:49 your will, and motivation.
+1:01:55 And now another quote, as we're nearing
+1:01:59 to the end, you don't have to stop AI to
+1:02:01 make it safe. you just have to be in the
+1:02:03 room when it's built. So combining
+1:02:06 governance, security, risk and
+1:02:07 compliance,
+1:02:09 this is how we can represent it. So we
+1:02:13 want AI as it's we don't want
+1:02:17 um reactive governance. We don't want
+1:02:19 reactive security. We don't want
+1:02:21 reactive um risk controls and
+1:02:24 governance. We want it to be proactive.
+1:02:27 We wanted it to be run in parallel with
+1:02:30 the development of these systems. So as
+1:02:33 the development team and product teams
+1:02:36 are designing and developing the
+1:02:38 solutions, we want the governance, the
+1:02:41 security and the compliance teams to be
+1:02:45 um following them to be tracking them to
+1:02:47 be working with them, guiding them,
+1:02:49 telling them um answering their
+1:02:51 questions, understanding how everything
+1:02:53 works and steering them basically from
+1:02:56 any questionable choice, from any
+1:02:59 possibly non-compliant decision they
+1:03:02 might
+1:03:03 So,
+1:03:06 okay. Now, this is all I have prepared
+1:03:10 for you today. I tried to fit everything
+1:03:12 in a tight time frame, but I hope you
+1:03:16 enjoyed it. If you have some more
+1:03:19 specific questions or if you want to
+1:03:21 hear some other things, if you want to
+1:03:25 criticize me, if you want to bring your
+1:03:27 own ideas on the table, please feel free
+1:03:29 to chat and I'll try to address anything
+1:03:32 you might have.
+1:03:47 I'll give you guys two more minutes for
+1:03:51 any questions.
+1:04:00 Thank you T and the fly rank team. And
+1:04:03 yeah, my posture um
+1:04:06 they they told me make yourself at home
+1:04:08 so that that's what I did. Um okay, we
+1:04:10 have a questions. What are your thoughts
+1:04:12 on the use of AI within Fortnite?
+1:04:14 Unfortunately, I'm not really familiar
+1:04:16 with this system and its use case within
+1:04:20 that game. But I'm pretty I mean,
+1:04:23 speaking of the risk classification, if
+1:04:25 it's within a game, it would most likely
+1:04:27 be of minimal risk except it's affecting
+1:04:31 the users in some weird way or their
+1:04:34 transactional history, their personal
+1:04:36 data or whatever. But yeah, so that's
+1:04:38 what we have with games. AI is mostly
+1:04:41 harmless unless it uses and processes
+1:04:45 your personal data for something or
+1:04:47 tries to manipulate you into more
+1:04:50 purchases and microtransactions. So
+1:04:53 these are some sensitive topics that
+1:04:54 some companies might be facing in the
+1:04:56 near future.
+1:05:03 Okay then. Thank you everyone.
+1:05:06 Oh, we have another
+1:05:13 Well, you don't really Nobody tells you
+1:05:15 that you need to have a specific
+1:05:18 um certification for some topic. But of
+1:05:21 course, it's always,
+1:05:24 you know, it's always welcome to have
+1:05:26 any additional skill set, any additional
+1:05:28 educational
+1:05:30 uh document or any additional
+1:05:32 certification to prove that you have
+1:05:34 mastered something.
+1:05:36 Now in that case if you want to start
+1:05:39 out as an AI compliance expert what I
+1:05:41 mentioned before start with um the main
+1:05:45 documentation start with OASP start with
+1:05:47 NISD EUAI act ISO4201
+1:05:51 and these are already covering the great
+1:05:53 majority of compliance topics.
+1:05:58 Um, if you want to con conduct a
+1:06:01 specific certification, you should see
+1:06:04 um I would recommend you check I don't
+1:06:06 know where you're from, but check what
+1:06:08 the current uh trends in your country
+1:06:10 are or in the country you want to work
+1:06:11 in and see uh what they mostly care
+1:06:15 about. So let's say if it's European
+1:06:17 Union, of course you want to focus on
+1:06:18 the EU AI act. Um then you also want to
+1:06:21 see for large companies it's mostly ISO
+1:06:24 42,0001 as well. So these are some
+1:06:27 topics you can find some courses on and
+1:06:30 a lot of the auditing companies who
+1:06:32 offer um who certify companies for ISO
+1:06:36 4201 they also offer courses for people
+1:06:40 individually on implementation. So that
+1:06:45 would be called ISO 40 4201 lead
+1:06:48 implement course. So these are some
+1:06:50 topics you can explore.
+1:06:57 Thank you very much guys. Thank you for
+1:06:59 the comments. Um and now one more
+1:07:01 questions. Arememes focusing on AI
+1:07:03 compliance at all? Well uh they're
+1:07:07 getting there. More and more people are
+1:07:09 understanding the importance of AI
+1:07:11 compliance and governance. So um I mean
+1:07:15 at this point it became a topic that
+1:07:18 cannot really be skipped in neither AI
+1:07:20 development nor AI deployment nor in the
+1:07:23 sales process because um even when you
+1:07:27 sell an AI system the people the clients
+1:07:30 often want to know how it's built where
+1:07:33 it's built what it does. So you will
+1:07:36 sometimes encounter even these
+1:07:37 compliance questions on a very high-end
+1:07:39 level with the clients.
+1:07:42 So, uh, what I can tell you, they're
+1:07:45 focusing and it's much better than it
+1:07:47 was in the previous years, but it's also
+1:07:49 due to the hard and heavy push of, um,
+1:07:52 let's say the European Union in the EU
+1:07:56 because if you don't focus on it, you
+1:07:59 basically risk losing millions and
+1:08:02 millions, even billions of revenue
+1:08:04 because of a very trivial or stupid
+1:08:06 mistake.
+1:08:11 Okay, then. Thank you so much everyone.
+1:08:14 Um, thanks to the Fly Rank team for
+1:08:16 making this possible. It It is an honor
+1:08:18 to be part of this and I wish you all
+1:08:21 the best and I'll see you.

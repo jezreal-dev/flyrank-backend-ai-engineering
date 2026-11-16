@@ -10,11 +10,16 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 | **BE-02 (W3 · A2)** | Connecting Your CRUD to the Database (Layered + SQLite) | 3-Layer (`routes` $\rightarrow$ `services` $\rightarrow$ `repositories` + `database.py` SQLite) | [`./BE-01-crud-api`](./BE-01-crud-api) | Complete |
 | **BE-05 (W5 · A9)** | The Polite Scraper (3 Catalogue Pages $\rightarrow$ 60 Validated Books) | Python, `requests`, `beautifulsoup4`, `pydantic`, `pytest` | [`./scraper`](./scraper) | Complete |
 
-## 2. Week 5 Workshop Notes
+## 2. Week 5 Learning Notes
 
+### Backend AI Engineering
 - [Scraping in Practice — From Messy HTML to Clean Data](./workshops/BE-S5-Web-Scraping-in-Practice.md): session notes, recording chapters, and the documented scope difference between the lecture exercise and BE-05.
 - [Watch the workshop recording](https://youtu.be/aQZKJOqrg2Q).
 - The scraper's implementation, run instructions, outputs, and tests are documented in [`scraper/README.md`](./scraper/README.md).
+
+### General AI Fluency
+- [Who Is Watching the Robot? — AI Governance, Security, Risk & Compliance](./learning/general-ai-fluency/week-05/ai-governance-risk-compliance.md): session summary, current official framework references, and an application to the FL-07 Study Coach.
+- [Raw transcript supplied with the course](./learning/general-ai-fluency/week-05/ai-governance-risk-compliance-transcript.txt) · [Recording](https://www.youtube.com/watch?v=AXDwPosCqU8).
 
 ## 3. Official Walkthrough Reference Codebases (Cloned & Included)
 
