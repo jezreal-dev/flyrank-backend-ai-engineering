@@ -2,3 +2,5 @@ fastapi
 uvicorn
 psycopg[binary]
 python-dotenv
+openai>=1.0.0
+pydantic>=2.6.0

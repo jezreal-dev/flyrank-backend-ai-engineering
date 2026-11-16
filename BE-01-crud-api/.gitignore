@@ -16,3 +16,6 @@ __pycache__/
 *.db
 *.sqlite
 *.sqlite3
+
+# BE-07 generated model-failure records can contain submitted text
+logs/*.jsonl
