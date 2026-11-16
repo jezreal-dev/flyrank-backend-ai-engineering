@@ -21,14 +21,19 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 - [Who Is Watching the Robot? — AI Governance, Security, Risk & Compliance](./learning/general-ai-fluency/week-05/ai-governance-risk-compliance.md): session summary, current official framework references, and an application to the FL-07 Study Coach.
 - [Raw transcript supplied with the course](./learning/general-ai-fluency/week-05/ai-governance-risk-compliance-transcript.txt) · [Recording](https://www.youtube.com/watch?v=AXDwPosCqU8).
 
-## 3. Official Walkthrough Reference Codebases (Cloned & Included)
+## 3. Week 6 Mentor Notes
+
+- [Web3 & Crypto — Alessandro Macagno](./workshops/BE-W6-Web3-and-Crypto.md): transcript-informed notes on verifiability, blockchain mechanics, wallets, keys, transactions, smart contracts, tokens, practical risks, and the testnet exercise.
+- [Watch the recording](https://www.youtube.com/watch?v=ZE3eLTe4XTc).
+
+## 4. Official Walkthrough Reference Codebases (Cloned & Included)
 
 | Reference Repo | Purpose in Week 3 Walkthrough (`https://youtu.be/FdhEiQ5I4q8`) | Folder |
 | :--- | :--- | :--- |
 | **`BE-A1-First-CRUD-API`** | Single-file Express CRUD baseline (`index.js` + `openapi.json`) showing why in-memory data disappears on restart and why single-file architecture becomes hard to maintain. | [`./BE-A1-First-CRUD-API`](./BE-A1-First-CRUD-API) |
 | **`BE-Internship-Layered-architecture-example`** | Refactored 3-Layer Architecture (`src/routes/`, `src/services/`, `src/repositories/`, `src/middleware/error-handler.js`, `src/errors.js`) demonstrating Separation of Concerns so swapping storage touches only the repository layer. | [`./BE-Internship-Layered-architecture-example`](./BE-Internship-Layered-architecture-example) |
 
-## 4. How the 3-Layer Architecture Maps Across Both Stacks
+## 5. How the 3-Layer Architecture Maps Across Both Stacks
 
 | Layer | Responsibility | Node.js Reference (`BE-Internship-Layered-architecture-example`) | Python + SQLite Assignment (`BE-01-crud-api`) |
 | :--- | :--- | :--- | :--- |
