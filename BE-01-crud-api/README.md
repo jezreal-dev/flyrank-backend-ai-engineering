@@ -311,3 +311,62 @@ git diff --no-index ai-version/Dockerfile.ai Dockerfile
 1. **Startup Race Condition Handling**: The AI's compose file used a bare `depends_on: [db]`. In production, this creates race conditions because Docker considers `db` started as soon as the container process begins, but PostgreSQL takes 3–5 seconds to initialize sockets. Our production compose file includes healthchecks (`pg_isready`) and specifies `condition: service_healthy` so FastAPI never crashes on startup.
 2. **Container Image Bloat**: The AI generated a naive single-stage Dockerfile based on full `python:3.12` ($\approx 1\text{ GB}$). Our implementation uses a multi-stage `python:3.12-slim` build, reducing the image to **54.8 MB**.
 3. **Host Port Collisions & Networking**: The AI directly mapped `5432:5432`, which conflicts with existing native PostgreSQL instances on developer workstations. Our solution isolates the container's external mapping to `5433:5432` while keeping internal compose networking on standard `db:5432`.
+
+---
+
+## BE-07: Connect to an AI API
+
+### Job
+
+`POST /enrich` takes a scraped book title and description and returns one category (`fiction`, `nonfiction`, `poetry`, `comics`, or `other`), a sentence of at most 30 words, and zero or more fixed quality flags. It uses the same title and description fields produced by [`scraper/`](../scraper).
+
+### Run locally
+
+From this directory, copy `.env.example` to `.env`. Keep `LLM_STUB=1` first; this exercises the endpoint without spending provider quota. Start the stack with:
+
+```bash
+docker compose up --build -d
+```
+
+Then call the deterministic stub:
+
+```bash
+curl -sS http://127.0.0.1:8000/enrich \
+  -H 'Content-Type: application/json' \
+  -d '{"title":"A Light in the Attic","description":"A collection of poems for children."}'
+```
+
+Expected stub output (this is not a model result):
+
+```json
+{"category":"other","summary":"Stub response; the language model was not called.","quality_flags":["ambiguous_category"]}
+```
+
+To enable the live model, add your OpenRouter key to the local, git-ignored `.env`, set `LLM_STUB=0`, leave `LLM_ENABLED=true`, and restart the API with `docker compose up --build -d api`. Never commit or paste the key into an issue or chat. The selected route is `openrouter/free`; the actual model may vary by request. Set `LLM_BASE_URL`, `LLM_API_KEY`, and `LLM_MODEL` to use a compatible provider instead. Set `LLM_ENABLED=false` to turn provider calls off immediately.
+
+### Trust and failure handling
+
+- Input and output are strict Pydantic contracts; invalid request fields return `400` with field locations.
+- The fixed versioned prompt is [`prompts/enrich-v1.md`](./prompts/enrich-v1.md). Scraped text is JSON-encoded and sent as untrusted user data, separate from system instructions.
+- Model output must parse as JSON and pass the closed response schema. One correction request is allowed. A second failure returns `422`; raw failed output is saved only to ignored local `logs/quarantine.jsonl`.
+- Provider requests have a 12-second timeout and at most one retry for timeouts, connection failures, `429`, or `5xx`. Authentication failures are not retried. Long `Retry-After` values are returned immediately.
+- `LLM_ENABLED=false` is a kill switch that returns a valid deterministic fallback without making a provider request.
+- Structured logs report prompt version, provider-returned model, token usage, provider cost when supplied, duration, and repair count. They do not include submitted text, model output, or credentials.
+
+### Evaluation and current result
+
+Eight labelled cases are in [`evals/cases.json`](./evals/cases.json), including an instruction-injection example, insufficient text, and the five categories. Run them against the live provider after setting up `.env`:
+
+```bash
+python evals/run_eval.py --output evals/latest-results.json
+```
+
+The report gives schema validity, exact category accuracy, and the insufficient-text flag result. `evals/latest-results.json` should only be committed after an actual live run. **Live score: pending**; the provider key is not present in this checkout, so no live model output or cost has been recorded. Automated contract and retry tests use mocked model responses and do not count as the live evaluation.
+
+Run the local mocked checks with:
+
+```bash
+DATABASE_URL='' LLM_STUB=1 python -m pytest -q tests/test_enrichment_route.py tests/test_provider.py
+```
+
+The implementation history and actual errors/fixes are recorded in [`BE-07-BUILD-LOG.md`](./BE-07-BUILD-LOG.md). The assignment PDF calls this BE-07 / Week 6 in the portal; the attached document has a different internal stage label.

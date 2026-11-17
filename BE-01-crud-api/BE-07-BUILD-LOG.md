@@ -42,3 +42,9 @@ This log records implementation events as they happen. It is not a retrospective
 - Honors short `Retry-After` values (up to two seconds). Longer provider cooldowns are returned immediately so a free-tier quota wait cannot leave the workflow hanging.
 - Added structured stdout records for prompt version, actual model, prompt/completion tokens, provider-reported cost when available, duration, and repair count. No prompt, input, output, or credential is logged.
 - Verified 429 retry, 401 no-retry, long `Retry-After` handling, and safe telemetry with mocked provider responses. All 18 endpoint/provider tests pass.
+
+## 2026-11-17 — Stage 5: evaluation and handoff docs
+
+- Added eight human-labelled cases and a local HTTP eval runner that reports schema pass rate, exact category accuracy, and expected quality-flag checks. The runner can save a JSON report, but no report is checked in before a real run.
+- Added local setup, endpoint examples, prompt and guardrail behavior, retry limits, kill switch, test command, and current evaluation status to the assignment README and repository index.
+- Ran Python compilation, the eval runner's help path, all 18 local tests, and `git diff --check`; all passed. No live model evaluation was run because the local `.env` has no key. The real score, returned model, and cost remain to be recorded after credentials are configured.
