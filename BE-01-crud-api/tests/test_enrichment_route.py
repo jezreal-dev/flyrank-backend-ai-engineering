@@ -74,7 +74,7 @@ def test_live_mode_fails_cleanly_until_provider_is_wired(client, monkeypatch) ->
     assert "LLM_API_KEY" in response.json()["detail"]
 
 
-def test_live_endpoint_uses_model_but_keeps_record_in_user_message(client, monkeypatch) -> None:
+def test_live_endpoint_uses_model_but_keeps_record_in_user_message(client, monkeypatch, capsys) -> None:
     import src.llm.provider as provider
 
     captured = {}
@@ -102,6 +102,16 @@ def test_live_endpoint_uses_model_but_keeps_record_in_user_message(client, monke
     assert [message["role"] for message in messages] == ["system", "user"]
     assert hostile_text not in messages[0]["content"]
     assert hostile_text in messages[1]["content"]
+    log_line = capsys.readouterr().out.strip().splitlines()[-1]
+    import json
+
+    event = json.loads(log_line)
+    assert event["prompt_version"] == "enrich-v1"
+    assert event["model"] == "test-model"
+    assert event["prompt_tokens"] == 10
+    assert event["completion_tokens"] == 12
+    assert event["repair_attempts"] == 0
+    assert hostile_text not in log_line
 
 
 def test_invalid_model_output_is_repaired_once(client, monkeypatch) -> None:

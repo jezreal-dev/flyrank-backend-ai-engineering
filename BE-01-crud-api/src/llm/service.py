@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import re
 import sys
+import time
 from datetime import datetime, timezone
 
 from pydantic import ValidationError as PydanticValidationError
@@ -105,6 +106,22 @@ def _repair_messages(payload: BookEnrichmentRequest, invalid_output: InvalidMode
     return messages
 
 
+def _log_live_call(replies: list[provider.ModelReply], started: float, repair_attempts: int) -> None:
+    event = {
+        "event": "llm_enrichment",
+        "prompt_version": PROMPT_VERSION,
+        "model": replies[-1].model,
+        "prompt_tokens": sum(reply.prompt_tokens for reply in replies),
+        "completion_tokens": sum(reply.completion_tokens for reply in replies),
+        "provider_cost_usd": round(sum(reply.cost_usd or 0 for reply in replies), 8)
+        if any(reply.cost_usd is not None for reply in replies)
+        else None,
+        "duration_ms": round((time.monotonic() - started) * 1000),
+        "repair_attempts": repair_attempts,
+    }
+    print(json.dumps(event, separators=(",", ":")), flush=True)
+
+
 def enrich_book(payload: BookEnrichmentRequest) -> BookEnrichmentResult:
     """Return a deterministic fallback, or a model result with one bounded repair."""
     if os.getenv("LLM_ENABLED", "true").strip().lower() in {"0", "false", "no", "off"}:
@@ -120,13 +137,22 @@ def enrich_book(payload: BookEnrichmentRequest) -> BookEnrichmentResult:
             quality_flags=["ambiguous_category"],
         )
 
+    started = time.monotonic()
+    replies: list[provider.ModelReply] = []
     reply = provider.complete(build_messages(payload))
+    replies.append(reply)
     try:
-        return _parse_json_output(reply.content)
+        result = _parse_json_output(reply.content)
+        _log_live_call(replies, started, repair_attempts=0)
+        return result
     except InvalidModelOutput as first_error:
         repaired = provider.complete(_repair_messages(payload, first_error))
+        replies.append(repaired)
         try:
-            return _parse_json_output(repaired.content)
+            result = _parse_json_output(repaired.content)
+            _log_live_call(replies, started, repair_attempts=1)
+            return result
         except InvalidModelOutput as final_error:
             _quarantine(payload, repaired.content, str(final_error))
+            _log_live_call(replies, started, repair_attempts=1)
             raise final_error from first_error

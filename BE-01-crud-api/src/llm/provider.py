@@ -1,7 +1,11 @@
 """OpenAI-compatible provider adapter for OpenRouter."""
 
 from dataclasses import dataclass
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 import os
+import random
+import time
 
 from openai import APIConnectionError, APIStatusError, APITimeoutError, OpenAI, OpenAIError
 
@@ -29,10 +33,11 @@ class ModelReply:
     model: str
     prompt_tokens: int
     completion_tokens: int
+    cost_usd: float | None = None
 
 
 def complete(messages: list[dict[str, str]]) -> ModelReply:
-    """Send one bounded chat-completion request and return its measured response."""
+    """Send a bounded request, retrying one transient failure at most once."""
     base_url = os.getenv("LLM_BASE_URL", "").strip()
     api_key = os.getenv("LLM_API_KEY", "").strip()
     model = os.getenv("LLM_MODEL", "").strip()
@@ -44,25 +49,44 @@ def complete(messages: list[dict[str, str]]) -> ModelReply:
     if missing:
         raise ProviderConfigurationError("Missing provider setting(s): " + ", ".join(missing))
 
-    client = OpenAI(base_url=base_url, api_key=api_key, timeout=15.0, max_retries=0)
-    try:
-        response = client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=0,
-            max_tokens=256,
-        )
-    except APITimeoutError as exc:
-        raise ProviderTimeoutError("The model provider timed out.") from exc
-    except APIStatusError as exc:
-        retry_after = exc.response.headers.get("retry-after")
-        raise ProviderRequestError(
-            "The model provider returned an error.",
-            status_code=exc.status_code,
-            retry_after=retry_after,
-        ) from exc
-    except (APIConnectionError, OpenAIError) as exc:
-        raise ProviderRequestError("Could not connect to the model provider.") from exc
+    client = OpenAI(base_url=base_url, api_key=api_key, timeout=12.0, max_retries=0)
+    response = None
+    for attempt in range(2):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=0,
+                max_tokens=256,
+            )
+            break
+        except APITimeoutError as exc:
+            if attempt == 0:
+                time.sleep(random.uniform(0.5, 1.5))
+                continue
+            raise ProviderTimeoutError("The model provider timed out after one retry.") from exc
+        except APIStatusError as exc:
+            retry_after = exc.response.headers.get("retry-after")
+            transient = exc.status_code == 429 or 500 <= exc.status_code <= 599
+            delay = _retry_delay(retry_after, attempt)
+            if attempt == 0 and transient and delay is not None:
+                time.sleep(delay)
+                continue
+            raise ProviderRequestError(
+                "The model provider returned an error.",
+                status_code=exc.status_code,
+                retry_after=retry_after,
+            ) from exc
+        except APIConnectionError as exc:
+            if attempt == 0:
+                time.sleep(random.uniform(0.5, 1.5))
+                continue
+            raise ProviderRequestError("Could not connect to the model provider after one retry.") from exc
+        except OpenAIError as exc:
+            raise ProviderRequestError("The model provider request failed.") from exc
+
+    if response is None:
+        raise ProviderRequestError("The model provider request failed without a response.")
 
     choices = getattr(response, "choices", [])
     content = choices[0].message.content if choices else None
@@ -75,4 +99,22 @@ def complete(messages: list[dict[str, str]]) -> ModelReply:
         model=getattr(response, "model", model) or model,
         prompt_tokens=getattr(usage, "prompt_tokens", 0) or 0,
         completion_tokens=getattr(usage, "completion_tokens", 0) or 0,
+        cost_usd=getattr(usage, "cost", None),
     )
+
+
+def _retry_delay(retry_after: str | None, attempt: int) -> float | None:
+    """Honor short Retry-After hints; long waits are surfaced instead of blocking."""
+    if retry_after:
+        try:
+            delay = float(retry_after)
+        except ValueError:
+            try:
+                parsed = parsedate_to_datetime(retry_after)
+                delay = (parsed - datetime.now(timezone.utc)).total_seconds()
+            except (TypeError, ValueError, OverflowError):
+                return None
+        if delay < 0:
+            delay = 0
+        return delay if delay <= 2 else None
+    return random.uniform(0.5, 1.5) * (attempt + 1)

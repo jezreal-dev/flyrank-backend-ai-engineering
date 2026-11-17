@@ -35,3 +35,10 @@ This log records implementation events as they happen. It is not a retrospective
 - After a second invalid response, the API returns a generic validation failure and appends the raw result, source record, prompt version, and timestamp to ignored local `logs/quarantine.jsonl`.
 - Added `LLM_ENABLED=false` kill switch. It returns a valid deterministic fallback without contacting the provider.
 - Verified repair success, exactly one repair on repeated failure, quarantine output, and kill-switch behavior with mocked provider tests. All 15 endpoint tests pass.
+
+## 2026-11-17 — Stage 4: provider limits and call records
+
+- Set the HTTP client's request timeout to 12 seconds and disabled hidden SDK retries. The adapter retries at most once for timeouts, connection failures, 429, and 5xx; authentication and other client errors are not retried.
+- Honors short `Retry-After` values (up to two seconds). Longer provider cooldowns are returned immediately so a free-tier quota wait cannot leave the workflow hanging.
+- Added structured stdout records for prompt version, actual model, prompt/completion tokens, provider-reported cost when available, duration, and repair count. No prompt, input, output, or credential is logged.
+- Verified 429 retry, 401 no-retry, long `Retry-After` handling, and safe telemetry with mocked provider responses. All 18 endpoint/provider tests pass.
