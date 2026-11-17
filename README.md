@@ -7,7 +7,7 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 | ID | Assignment | Architecture & Stack | Folder | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **BE-01 (W1/W2 · A1)** | Build Your First CRUD API | Python, FastAPI, Uvicorn | [`./BE-01-crud-api`](./BE-01-crud-api) | Complete |
-| **BE-07 (W6)** | Connect to an AI API: schema-validated book enrichment | FastAPI, Pydantic, OpenRouter-compatible API | [`./BE-01-crud-api`](./BE-01-crud-api#be-07-connect-to-an-ai-api) | Implementation pushed; live provider eval pending local key |
+| **BE-07 (W6)** | Connect to an AI API: schema-validated book enrichment | FastAPI, Pydantic, OpenRouter-compatible API | [`./BE-01-crud-api`](./BE-01-crud-api#be-07-connect-to-an-ai-api) | Complete (8/8 eval passed, 100% schema & category accuracy) |
 | **BE-02 (W3 · A2)** | Connecting Your CRUD to the Database (Layered + SQLite) | 3-Layer (`routes` $\rightarrow$ `services` $\rightarrow$ `repositories` + `database.py` SQLite) | [`./BE-01-crud-api`](./BE-01-crud-api) | Complete |
 | **BE-05 (W5 · A9)** | The Polite Scraper (3 Catalogue Pages $\rightarrow$ 60 Validated Books) | Python, `requests`, `beautifulsoup4`, `pydantic`, `pytest` | [`./scraper`](./scraper) | Complete |
 
@@ -29,7 +29,7 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 
 ## 4. Week 6 Assignment
 
-- [BE-07: Connect to an AI API](./BE-01-crud-api#be-07-connect-to-an-ai-api) enriches one scraped book record with a schema-checked category and short summary. The README explains setup, the prompt, safety and retry behavior, and how to run the eight labelled evaluation cases. The real-model score is pending a local provider key and run.
+- [BE-07: Connect to an AI API](./BE-01-crud-api#be-07-connect-to-an-ai-api) enriches one scraped book record with a schema-checked category and short summary. The README explains setup, the prompt, safety and retry behavior, and how to run the eight labelled evaluation cases. The real-model evaluation was executed with `baidu/ernie-5.5-flash-preview:free`, passing 8/8 schema checks and 8/8 category matches (100% accuracy) at $0.00 provider-reported cost.
 
 ## 5. Official Walkthrough Reference Codebases (Cloned & Included)
 
