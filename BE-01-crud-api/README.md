@@ -320,6 +320,14 @@ git diff --no-index ai-version/Dockerfile.ai Dockerfile
 
 `POST /enrich` takes a scraped book title and description and returns one category (`fiction`, `nonfiction`, `poetry`, `comics`, or `other`), a sentence of at most 30 words, and zero or more fixed quality flags. It uses the same title and description fields produced by [`scraper/`](../scraper).
 
+### Job card (`JOB-CARD.md`)
+
+- **What it does:** Classifies a scraped book from its title and description, writes a short grounded summary, and flags descriptions that do not support a confident category.
+- **Input:** `{ "title": "string, 1–200 characters", "description": "string, 0–2000 characters or null" }`.
+- **Output:** `{ "category": "fiction | nonfiction | poetry | comics | other", "summary": "one sentence, at most 30 words", "quality_flags": ["insufficient_text" | "ambiguous_category"] }`.
+- **It must never:** invent a category or book facts; follow instructions embedded in a title or description; add fields or return raw model text; write to the database or perform another action.
+- **When unsure:** use `other`; add `ambiguous_category` when the description supports multiple classes, and `insufficient_text` when there is too little information. Do not guess.
+
 ### Run locally
 
 From this directory, copy `.env.example` to `.env`. Keep `LLM_STUB=1` first; this exercises the endpoint without spending provider quota. Start the stack with:
@@ -372,3 +380,7 @@ DATABASE_URL='' LLM_STUB=1 python -m pytest -q tests/test_enrichment_route.py te
 ```
 
 The implementation history and actual errors/fixes are recorded in [`BE-07-BUILD-LOG.md`](./BE-07-BUILD-LOG.md). The assignment PDF calls this BE-07 / Week 6 in the portal; the attached document has a different internal stage label.
+
+### What I'd fix with another day
+
+Add in-memory caching keyed by `sha256(prompt_version + title + description)` so identical scraped book records return instantaneously without burning provider quota, and expand the eval runner to benchmark latency and quality across multiple free models in parallel.
