@@ -24,6 +24,12 @@ def enrich(payload: BookEnrichmentRequest) -> BookEnrichmentResult:
     except ProviderTimeoutError as exc:
         raise HTTPException(status_code=504, detail=str(exc)) from exc
     except ProviderRequestError as exc:
-        raise HTTPException(status_code=502, detail=str(exc)) from exc
+        if exc.status_code is None and exc.error_type:
+            detail = f"The model provider request failed ({exc.error_type})."
+        elif exc.status_code is None:
+            detail = "The model provider request failed."
+        else:
+            detail = f"The model provider returned HTTP {exc.status_code}."
+        raise HTTPException(status_code=502, detail=detail) from exc
     except InvalidModelOutput as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc

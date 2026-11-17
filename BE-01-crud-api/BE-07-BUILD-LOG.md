@@ -49,3 +49,12 @@ This log records implementation events as they happen. It is not a retrospective
 - Added local setup, endpoint examples, prompt and guardrail behavior, retry limits, kill switch, test command, and current evaluation status to the assignment README and repository index.
 - Ran Python compilation, the eval runner's help path, all 18 local tests, and `git diff --check`; all passed. No live model evaluation was run because the local `.env` has no key. The real score, returned model, and cost remain to be recorded after credentials are configured.
 - Started the API separately from Docker on port 8017 with `LLM_STUB=1`, posted a book record with `curl`, received HTTP 200 and the documented deterministic stub response, then stopped that temporary server. This confirms the HTTP loop in stub mode; it is not a model result.
+
+## 2026-11-17 — Stage 6: first live evaluation and credential isolation
+
+- Confirmed the local `.env` contains a key without printing it; `.env` is ignored and is not tracked by Git.
+- The first eight-case live evaluation returned 3/8 schema-valid responses. Five calls failed in the provider adapter; the API hid the upstream status, which made the report hard to diagnose. A later one-case retry for E02 succeeded.
+- The full mocked suite initially failed because the app's database setup loads `.env`, so a “missing API key” test made a real provider request. Fixed the test to explicitly clear provider settings. It now passes without using the key.
+- Added safe provider-error classification (status or exception type only) to API details and included HTTP error details in eval reports. No provider response body or credential is exposed.
+- Reran the full eight-case evaluation. Latest result: schema 4/8, category match 4/8 (all four valid responses matched), and the insufficient-text flag case did not finish because its request failed. Four provider calls failed intermittently. Individual retries of E02 and E03 then succeeded with the expected labels. The free route selected different model IDs across successful calls and reported $0 provider cost for those calls.
+- Ran the full local suite after the test-isolation and error-reporting changes: 19 passed. The live run remains a revise, not a pass, because the free route did not complete all eight cases reliably.

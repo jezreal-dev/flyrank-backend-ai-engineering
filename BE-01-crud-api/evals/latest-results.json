@@ -1,0 +1,104 @@
+{
+  "case_count": 8,
+  "schema_passes": 4,
+  "category_matches": 4,
+  "category_accuracy": 0.5,
+  "quality_flag_cases": 1,
+  "quality_flag_matches": 0,
+  "results": [
+    {
+      "id": "E01",
+      "http_status": 200,
+      "schema_ok": true,
+      "expected_category": "fiction",
+      "actual_category": "fiction",
+      "category_match": true,
+      "expected_quality_flag": null,
+      "quality_flag_match": true,
+      "response": {
+        "category": "fiction",
+        "summary": "A fantasy novel follows Bilbo Baggins, a hobbit who joins dwarves on a dangerous quest to reclaim their home.",
+        "quality_flags": []
+      }
+    },
+    {
+      "id": "E02",
+      "http_status": 200,
+      "schema_ok": true,
+      "expected_category": "nonfiction",
+      "actual_category": "nonfiction",
+      "category_match": true,
+      "expected_quality_flag": null,
+      "quality_flag_match": true,
+      "response": {
+        "category": "nonfiction",
+        "summary": "A historical account details Wilbur and Orville Wright's experiments leading to the first powered airplane flight.",
+        "quality_flags": []
+      }
+    },
+    {
+      "id": "E03",
+      "schema_ok": false,
+      "category_match": false,
+      "quality_flag_match": false,
+      "error": "HTTP Error 502: Bad Gateway",
+      "api_detail": "The model provider request failed."
+    },
+    {
+      "id": "E04",
+      "schema_ok": false,
+      "category_match": false,
+      "quality_flag_match": false,
+      "error": "HTTP Error 502: Bad Gateway",
+      "api_detail": "The model provider request failed."
+    },
+    {
+      "id": "E05",
+      "http_status": 200,
+      "schema_ok": true,
+      "expected_category": "other",
+      "actual_category": "other",
+      "category_match": true,
+      "expected_quality_flag": null,
+      "quality_flag_match": true,
+      "response": {
+        "category": "other",
+        "summary": "A mixed collection contains short fiction, personal essays, and several poems.",
+        "quality_flags": [
+          "ambiguous_category"
+        ]
+      }
+    },
+    {
+      "id": "E06",
+      "schema_ok": false,
+      "category_match": false,
+      "quality_flag_match": false,
+      "error": "HTTP Error 502: Bad Gateway",
+      "api_detail": "The model provider request failed."
+    },
+    {
+      "id": "E07",
+      "schema_ok": false,
+      "category_match": false,
+      "quality_flag_match": false,
+      "error": "HTTP Error 502: Bad Gateway",
+      "api_detail": "The model provider request failed."
+    },
+    {
+      "id": "E08",
+      "http_status": 200,
+      "schema_ok": true,
+      "expected_category": "nonfiction",
+      "actual_category": "nonfiction",
+      "category_match": true,
+      "expected_quality_flag": null,
+      "quality_flag_match": true,
+      "response": {
+        "category": "nonfiction",
+        "summary": "A popular science book explains major discoveries in physics, chemistry, geology, and biology for general readers.",
+        "quality_flags": []
+      }
+    }
+  ]
+}

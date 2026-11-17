@@ -361,7 +361,7 @@ Eight labelled cases are in [`evals/cases.json`](./evals/cases.json), including 
 python evals/run_eval.py --output evals/latest-results.json
 ```
 
-The report gives schema validity, exact category accuracy, and the insufficient-text flag result. `evals/latest-results.json` should only be committed after an actual live run. **Live score: pending**; the provider key is not present in this checkout, so no live model output or cost has been recorded. Automated contract and retry tests use mocked model responses and do not count as the live evaluation.
+The report gives schema validity, exact category accuracy, and the insufficient-text flag result. **Live run on 2026-11-17:** 4/8 responses passed schema validation and 4/8 matched the expected category (50% overall; all four valid responses had the expected category). Four calls failed at the provider boundary, so the insufficient-text flag case did not complete. A separate retry of two failed examples succeeded with the expected labels. The test records and later fix are in [`evals/latest-results.json`](./evals/latest-results.json) and [`BE-07-BUILD-LOG.md`](./BE-07-BUILD-LOG.md). The configured `openrouter/free` route returned different model IDs over successive requests; successful responses reported $0 provider cost. Treat this result as a revise: intermittent free-provider failures make a full pass unreliable. Automated contract and retry tests use mocked model responses and do not count as the live evaluation.
 
 Run the local mocked checks with:
 

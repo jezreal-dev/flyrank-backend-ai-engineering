@@ -68,6 +68,11 @@ def test_invalid_input_returns_400_with_field_name(client, payload, field) -> No
 
 
 def test_live_mode_fails_cleanly_until_provider_is_wired(client, monkeypatch) -> None:
+    # The app loads .env for its database config; keep this test independent of
+    # any real developer credential so it can never call an external provider.
+    monkeypatch.delenv("LLM_API_KEY", raising=False)
+    monkeypatch.delenv("LLM_BASE_URL", raising=False)
+    monkeypatch.delenv("LLM_MODEL", raising=False)
     monkeypatch.setenv("LLM_STUB", "0")
     response = client.post("/enrich", json={"title": "A Book"})
     assert response.status_code == 503
@@ -176,3 +181,18 @@ def test_kill_switch_returns_fallback_without_provider_call(client, monkeypatch)
 
     assert response.status_code == 200
     assert response.json()["summary"] == "Fallback response; model calls are disabled."
+
+
+def test_provider_error_exposes_status_without_upstream_body(client, monkeypatch) -> None:
+    import src.llm.provider as provider
+
+    def fail(_messages):
+        raise provider.ProviderRequestError("private upstream body", status_code=429)
+
+    monkeypatch.setattr(provider, "complete", fail)
+    monkeypatch.setenv("LLM_STUB", "0")
+    response = client.post("/enrich", json={"title": "A Book"})
+
+    assert response.status_code == 502
+    assert response.json()["detail"] == "The model provider returned HTTP 429."
+    assert "private upstream body" not in response.text

@@ -21,10 +21,18 @@ class ProviderTimeoutError(RuntimeError):
 class ProviderRequestError(RuntimeError):
     """The provider rejected or failed a request."""
 
-    def __init__(self, message: str, *, status_code: int | None = None, retry_after: str | None = None):
+    def __init__(
+        self,
+        message: str,
+        *,
+        status_code: int | None = None,
+        retry_after: str | None = None,
+        error_type: str | None = None,
+    ):
         super().__init__(message)
         self.status_code = status_code
         self.retry_after = retry_after
+        self.error_type = error_type
 
 
 @dataclass(frozen=True)
@@ -81,9 +89,15 @@ def complete(messages: list[dict[str, str]]) -> ModelReply:
             if attempt == 0:
                 time.sleep(random.uniform(0.5, 1.5))
                 continue
-            raise ProviderRequestError("Could not connect to the model provider after one retry.") from exc
+            raise ProviderRequestError(
+                "Could not connect to the model provider after one retry.",
+                error_type=type(exc).__name__,
+            ) from exc
         except OpenAIError as exc:
-            raise ProviderRequestError("The model provider request failed.") from exc
+            raise ProviderRequestError(
+                "The model provider request failed.",
+                error_type=type(exc).__name__,
+            ) from exc
 
     if response is None:
         raise ProviderRequestError("The model provider request failed without a response.")

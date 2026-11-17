@@ -58,12 +58,20 @@ def main() -> int:
                 "response": body,
             }
         except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as exc:
+            provider_detail = None
+            if isinstance(exc, HTTPError):
+                try:
+                    error_body = json.loads(exc.read().decode("utf-8"))
+                    provider_detail = error_body.get("detail") if isinstance(error_body, dict) else None
+                except (UnicodeDecodeError, json.JSONDecodeError):
+                    provider_detail = None
             result = {
                 "id": case["id"],
                 "schema_ok": False,
                 "category_match": False,
                 "quality_flag_match": False,
                 "error": str(exc),
+                "api_detail": provider_detail,
             }
 
         results.append(result)
@@ -71,7 +79,8 @@ def main() -> int:
         print(
             f"{case['id']} {state} "
             f"category={result.get('actual_category', 'ERROR')} "
-            f"expected={case['expected_category']} schema={result['schema_ok']}"
+            f"expected={case['expected_category']} schema={result['schema_ok']} "
+            f"error={result.get('api_detail', '')}"
         )
 
     schema_count = sum(item["schema_ok"] for item in results)
