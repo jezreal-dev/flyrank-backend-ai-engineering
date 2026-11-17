@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 import sys
+import time
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
@@ -18,11 +19,21 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default="http://127.0.0.1:8000")
     parser.add_argument("--output", help="Optional path to save the full JSON run report")
+    parser.add_argument(
+        "--delay",
+        type=float,
+        default=4.0,
+        help="Seconds between requests to stay below free-model rate limits (default: 4)",
+    )
     args = parser.parse_args()
+    if args.delay < 0:
+        parser.error("--delay must not be negative")
 
     cases = json.loads(CASES_PATH.read_text(encoding="utf-8"))
     results = []
     for case in cases:
+        if results and args.delay:
+            time.sleep(args.delay)
         payload = {key: case[key] for key in ("title", "description") if key in case}
         request = Request(
             args.base_url.rstrip("/") + "/enrich",

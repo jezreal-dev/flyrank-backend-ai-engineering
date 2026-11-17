@@ -1,10 +1,10 @@
 {
   "case_count": 8,
-  "schema_passes": 4,
-  "category_matches": 4,
-  "category_accuracy": 0.5,
+  "schema_passes": 8,
+  "category_matches": 8,
+  "category_accuracy": 1.0,
   "quality_flag_cases": 1,
-  "quality_flag_matches": 0,
+  "quality_flag_matches": 1,
   "results": [
     {
       "id": "E01",
@@ -17,7 +17,7 @@
       "quality_flag_match": true,
       "response": {
         "category": "fiction",
-        "summary": "A fantasy novel follows Bilbo Baggins, a hobbit who joins dwarves on a dangerous quest to reclaim their home.",
+        "summary": "A fantasy novel follows Bilbo Baggins joining dwarves on a dangerous journey to reclaim their home.",
         "quality_flags": []
       }
     },
@@ -32,25 +32,39 @@
       "quality_flag_match": true,
       "response": {
         "category": "nonfiction",
-        "summary": "A historical account details Wilbur and Orville Wright's experiments leading to the first powered airplane flight.",
+        "summary": "A historical account describes Wilbur and Orville Wright and the experiments leading to the first powered airplane flight.",
         "quality_flags": []
       }
     },
     {
       "id": "E03",
-      "schema_ok": false,
-      "category_match": false,
-      "quality_flag_match": false,
-      "error": "HTTP Error 502: Bad Gateway",
-      "api_detail": "The model provider request failed."
+      "http_status": 200,
+      "schema_ok": true,
+      "expected_category": "poetry",
+      "actual_category": "poetry",
+      "category_match": true,
+      "expected_quality_flag": null,
+      "quality_flag_match": true,
+      "response": {
+        "category": "poetry",
+        "summary": "A collection of lyric poems explores memory, family, and the passing of time.",
+        "quality_flags": []
+      }
     },
     {
       "id": "E04",
-      "schema_ok": false,
-      "category_match": false,
-      "quality_flag_match": false,
-      "error": "HTTP Error 502: Bad Gateway",
-      "api_detail": "The model provider request failed."
+      "http_status": 200,
+      "schema_ok": true,
+      "expected_category": "comics",
+      "actual_category": "comics",
+      "category_match": true,
+      "expected_quality_flag": null,
+      "quality_flag_match": true,
+      "response": {
+        "category": "comics",
+        "summary": "A comic book adventure follows a young reporter investigating a mystery in Shanghai.",
+        "quality_flags": []
+      }
     },
     {
       "id": "E05",
@@ -63,7 +77,7 @@
       "quality_flag_match": true,
       "response": {
         "category": "other",
-        "summary": "A mixed collection contains short fiction, personal essays, and several poems.",
+        "summary": "A mixed collection contains short fiction, personal essays, and poems.",
         "quality_flags": [
           "ambiguous_category"
         ]
@@ -71,19 +85,35 @@
     },
     {
       "id": "E06",
-      "schema_ok": false,
-      "category_match": false,
-      "quality_flag_match": false,
-      "error": "HTTP Error 502: Bad Gateway",
-      "api_detail": "The model provider request failed."
+      "http_status": 200,
+      "schema_ok": true,
+      "expected_category": "other",
+      "actual_category": "other",
+      "category_match": true,
+      "expected_quality_flag": "insufficient_text",
+      "quality_flag_match": true,
+      "response": {
+        "category": "other",
+        "summary": "The record lacks sufficient title and description information to classify.",
+        "quality_flags": [
+          "insufficient_text"
+        ]
+      }
     },
     {
       "id": "E07",
-      "schema_ok": false,
-      "category_match": false,
-      "quality_flag_match": false,
-      "error": "HTTP Error 502: Bad Gateway",
-      "api_detail": "The model provider request failed."
+      "http_status": 200,
+      "schema_ok": true,
+      "expected_category": "fiction",
+      "actual_category": "fiction",
+      "category_match": true,
+      "expected_quality_flag": null,
+      "quality_flag_match": true,
+      "response": {
+        "category": "fiction",
+        "summary": "A science fiction novel depicts a lunar colony organizing a revolt against Earth's control.",
+        "quality_flags": []
+      }
     },
     {
       "id": "E08",

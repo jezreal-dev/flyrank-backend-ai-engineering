@@ -342,7 +342,7 @@ Expected stub output (this is not a model result):
 {"category":"other","summary":"Stub response; the language model was not called.","quality_flags":["ambiguous_category"]}
 ```
 
-To enable the live model, add your OpenRouter key to the local, git-ignored `.env`, set `LLM_STUB=0`, leave `LLM_ENABLED=true`, and restart the API with `docker compose up --build -d api`. Never commit or paste the key into an issue or chat. The selected route is `openrouter/free`; the actual model may vary by request. Set `LLM_BASE_URL`, `LLM_API_KEY`, and `LLM_MODEL` to use a compatible provider instead. Set `LLM_ENABLED=false` to turn provider calls off immediately.
+To enable the live model, add your OpenRouter key to the local, git-ignored `.env`, set `LLM_STUB=0`, leave `LLM_ENABLED=true`, and restart the API with `docker compose up --build -d api`. Never commit or paste the key into an issue or chat. The current pinned free model is `baidu/ernie-5.5-flash-preview:free`; JSON mode is enabled for it. The model is configurable through `LLM_MODEL`; set `LLM_JSON_MODE=0` if switching to an endpoint that does not support JSON mode. Set `LLM_BASE_URL` and `LLM_API_KEY` to use a compatible provider instead. Set `LLM_ENABLED=false` to turn provider calls off immediately.
 
 ### Trust and failure handling
 
@@ -361,7 +361,9 @@ Eight labelled cases are in [`evals/cases.json`](./evals/cases.json), including 
 python evals/run_eval.py --output evals/latest-results.json
 ```
 
-The report gives schema validity, exact category accuracy, and the insufficient-text flag result. **Live run on 2026-11-17:** 4/8 responses passed schema validation and 4/8 matched the expected category (50% overall; all four valid responses had the expected category). Four calls failed at the provider boundary, so the insufficient-text flag case did not complete. A separate retry of two failed examples succeeded with the expected labels. The test records and later fix are in [`evals/latest-results.json`](./evals/latest-results.json) and [`BE-07-BUILD-LOG.md`](./BE-07-BUILD-LOG.md). The configured `openrouter/free` route returned different model IDs over successive requests; successful responses reported $0 provider cost. Treat this result as a revise: intermittent free-provider failures make a full pass unreliable. Automated contract and retry tests use mocked model responses and do not count as the live evaluation.
+The report gives schema validity, exact category accuracy, and the insufficient-text flag result. **Latest live run on 2026-11-17:** schema passed 8/8, category matched 8/8, and the `insufficient_text` flag matched 1/1. The final request log recorded the pinned model on all eight calls and `$0` provider cost. The raw JSON report is [`evals/latest-results.json`](./evals/latest-results.json); the build log records the earlier 4/8 and 7/8 runs and the changes made after each.
+
+The configured model is [`baidu/ernie-5.5-flash-preview:free`](https://openrouter.ai/baidu/ernie-5.5-flash-preview:free), selected instead of the changing `openrouter/free` router. OpenRouter lists it as free and supporting structured JSON output. The API asks for JSON mode and still validates every field itself. Eight successful calls used 4,261 prompt tokens and 1,267 completion tokens total (about 533 input and 158 output tokens per call); reported model cost was `$0.00`. At 10,000 calls/day, that workload would be about 5.33 million input and 1.58 million output tokens/day. The free tier is limited to 50 requests/day and 20 requests/minute, so it cannot serve that volume; the estimate is token volume, not a paid-tier price quote. See [OpenRouter's free model list and limits](https://openrouter.ai/collections/free-models/).
 
 Run the local mocked checks with:
 

@@ -58,14 +58,20 @@ def complete(messages: list[dict[str, str]]) -> ModelReply:
         raise ProviderConfigurationError("Missing provider setting(s): " + ", ".join(missing))
 
     client = OpenAI(base_url=base_url, api_key=api_key, timeout=12.0, max_retries=0)
+    json_mode = os.getenv("LLM_JSON_MODE", "1").strip().lower() not in {"0", "false", "no", "off"}
     response = None
     for attempt in range(2):
         try:
+            request_options = {
+                "model": model,
+                "messages": messages,
+                "temperature": 0,
+                "max_tokens": 256,
+            }
+            if json_mode:
+                request_options["response_format"] = {"type": "json_object"}
             response = client.chat.completions.create(
-                model=model,
-                messages=messages,
-                temperature=0,
-                max_tokens=256,
+                **request_options,
             )
             break
         except APITimeoutError as exc:

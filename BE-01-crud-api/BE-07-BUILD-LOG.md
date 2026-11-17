@@ -57,4 +57,13 @@ This log records implementation events as they happen. It is not a retrospective
 - The full mocked suite initially failed because the app's database setup loads `.env`, so a “missing API key” test made a real provider request. Fixed the test to explicitly clear provider settings. It now passes without using the key.
 - Added safe provider-error classification (status or exception type only) to API details and included HTTP error details in eval reports. No provider response body or credential is exposed.
 - Reran the full eight-case evaluation. Latest result: schema 4/8, category match 4/8 (all four valid responses matched), and the insufficient-text flag case did not finish because its request failed. Four provider calls failed intermittently. Individual retries of E02 and E03 then succeeded with the expected labels. The free route selected different model IDs across successful calls and reported $0 provider cost for those calls.
-- Ran the full local suite after the test-isolation and error-reporting changes: 19 passed. The live run remains a revise, not a pass, because the free route did not complete all eight cases reliably.
+- Ran the full local suite after the test-isolation and error-reporting changes: 19 passed. The live run remained a revise because the free route did not complete all eight cases reliably.
+
+## 2026-11-17 — Stage 7: pin model, pace requests, rerun evaluation
+
+- Replaced `openrouter/free` with `baidu/ernie-5.5-flash-preview:free` in the local ignored `.env` and public `.env.example`. OpenRouter lists this as a zero-price model with structured JSON support and 99.93% availability over the previous three days; it is served by one provider. The earlier individual live calls had succeeded with this model.
+- Enabled JSON mode for the pinned model while keeping Pydantic validation as the contract. Added `LLM_JSON_MODE=0` for providers without JSON mode.
+- Corrected eval case E04: its old description was a nonfiction book about comics, making its expected `comics` label ambiguous. Replaced it with a clearly described Tintin comic-book story.
+- Added a default four-second gap between eval requests to stay below the free request-per-minute limit. The exact cause of the earlier 429 was not isolated; model pinning and pacing were changed together.
+- After a cooldown, the full live eval passed: 8/8 schema-valid, 8/8 expected categories, and the insufficient-text flag matched. The same pinned model served all eight calls. Logs totaled 4,261 prompt tokens and 1,267 completion tokens; provider-reported cost was $0.00. At 10,000 calls/day, that is approximately 5.33 million input and 1.58 million output tokens/day, above the free tier's 50 requests/day limit.
+- Re-ran the local suite after the model and JSON-mode changes: 19 passed. The latest eval report is checked in; the local API key remains ignored and untracked.

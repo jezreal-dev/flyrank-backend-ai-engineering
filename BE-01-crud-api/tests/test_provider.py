@@ -37,6 +37,7 @@ def _configure(monkeypatch, outcomes):
     monkeypatch.setenv("LLM_BASE_URL", "https://provider.invalid/v1")
     monkeypatch.setenv("LLM_API_KEY", "test-secret")
     monkeypatch.setenv("LLM_MODEL", "openrouter/free")
+    monkeypatch.setenv("LLM_JSON_MODE", "1")
     return calls
 
 
@@ -52,6 +53,7 @@ def test_retries_one_429_with_short_retry_after(monkeypatch):
     assert sleeps == [1.0]
     assert result.model == "actual-model"
     assert result.prompt_tokens == 4
+    assert calls[0]["response_format"] == {"type": "json_object"}
 
 
 def test_does_not_retry_authentication_error(monkeypatch):
