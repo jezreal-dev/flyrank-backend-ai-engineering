@@ -23,6 +23,8 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 ### General AI Fluency
 - [Who Is Watching the Robot? — AI Governance, Security, Risk & Compliance](./learning/general-ai-fluency/week-05/ai-governance-risk-compliance.md): session summary, current official framework references, and an application to the FL-07 Study Coach.
 - [Raw transcript supplied with the course](./learning/general-ai-fluency/week-05/ai-governance-risk-compliance-transcript.txt) · [Recording](https://www.youtube.com/watch?v=AXDwPosCqU8).
+- [Week 9: Launch & Keep Building — Graduation & Compounding Platform](./learning/general-ai-fluency/week-09/launch-and-keep-building.md): Synthesis of Checkpoint 2 launch gate, adversarial testing (Break Your Own Site), planting your flag (domain, HTTPS, analytics, graduate badge), and the 30-minute keep-building habit.
+- [Curriculum Reference Guide](https://aifluency.flyrank.ai/week-09.html).
 
 ## 3. Week 6 Mentor Notes
 
