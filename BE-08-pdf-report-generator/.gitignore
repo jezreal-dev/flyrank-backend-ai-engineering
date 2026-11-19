@@ -1,0 +1,9 @@
+# Git ignore for BE-08 PDF report generator
+report.db
+reports/
+*.pdf
+__pycache__/
+*.pyc
+.env
+.env.local
+.venv/

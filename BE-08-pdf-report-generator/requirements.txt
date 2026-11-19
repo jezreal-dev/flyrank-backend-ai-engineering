@@ -1,0 +1,7 @@
+fastapi>=0.115.0
+uvicorn>=0.30.0
+xhtml2pdf>=0.2.16
+reportlab>=4.2.0
+pypdf>=5.0.0
+requests>=2.32.0
+inngest>=0.5.0
