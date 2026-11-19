@@ -1,0 +1,4 @@
+To: user@example.com
+Subject: Your Report 'cats' is Ready
+
+Comprehensive Market & Intelligence Report for topic: 'cats'. Synthesized from 12 background sources with 99.4% confidence.
