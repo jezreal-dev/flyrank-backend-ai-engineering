@@ -2,6 +2,9 @@
 
 Welcome to the repository for the **FlyRank Backend AI Engineering** assignments, layered architecture implementations, and reference walkthroughs.
 
+> **Cross-Track Master Directory:**  
+> For the complete index covering both **Backend AI Engineering** and **General AI Fluency** assignments, proof logs, and PDF submissions, see [`../ASSIGNMENTS_DIRECTORY.md`](../ASSIGNMENTS_DIRECTORY.md).
+
 ## 1. Assignments Index (Python / FastAPI + SQLite Track)
 
 | ID | Assignment | Architecture & Stack | Folder | Status |
