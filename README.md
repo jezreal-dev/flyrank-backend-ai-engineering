@@ -33,7 +33,14 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 
 - [BE-07: Connect to an AI API](./BE-01-crud-api#be-07-connect-to-an-ai-api) enriches one scraped book record with a schema-checked category and short summary. The README explains setup, the prompt, safety and retry behavior, and how to run the eight labelled evaluation cases. The real-model evaluation was executed with `baidu/ernie-5.5-flash-preview:free`, passing 8/8 schema checks and 8/8 category matches (100% accuracy) at $0.00 provider-reported cost.
 
-## 5. Official Walkthrough Reference Codebases (Cloned & Included)
+## 5. Week 7 Mentor & Workshop Notes
+
+- [From Skeptic to AI-First Developer — Jasmin Dudic](./workshops/BE-W7-From-Skeptic-to-AI-First-Developer.md): In-depth guide on the developer AI adoption curve (from skeptic to Claude Code agentic engineering), core primitives (thinking modes, plans, skills, context engineering), where AI falls short, and an end-to-end live build and deployment to Render.
+- [Watch Jasmin Dudic's session on YouTube](https://www.youtube.com/watch?v=RuvzDOR6hF0).
+- [When the Request Can't Wait — Background Jobs & Durable Workflows](./workshops/BE-W6-Background-Jobs-and-Durable-Workflows.md): Inngest queues, workers, polling, and retry backoff.
+- [LLMs in Production](./workshops/BE-W6-LLMs-in-Production.md): Provider seams, schema-checked JSON, smart retries, and unit economics.
+
+## 6. Official Walkthrough Reference Codebases (Cloned & Included)
 
 | Reference Repo | Purpose in Week 3 Walkthrough (`https://youtu.be/FdhEiQ5I4q8`) | Folder |
 | :--- | :--- | :--- |
