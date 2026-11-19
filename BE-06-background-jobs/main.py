@@ -131,8 +131,12 @@ async def make_report(ctx: inngest.Context) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
-# Stage 4: heartbeat Cron Function
+# Stage 4: The Clock Knocks - First Cron Job (heartbeat)
 # ---------------------------------------------------------------------------
+# Cron Expression: * * * * * (runs on schedule every minute on the clock alone)
+# Answers for README:
+# - Run every day at 08:00: 0 8 * * *
+# - Run every Sunday at 22:00: 0 22 * * 0
 @inngest_client.create_function(
     fn_id="heartbeat",
     trigger=inngest.TriggerCron(cron="* * * * *"),  # Runs every minute on the clock
