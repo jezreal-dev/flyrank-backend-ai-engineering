@@ -2,6 +2,7 @@
 report.db
 reports/
 *.pdf
+!BE-08_PDF_Report_Generator_Jezreal_Momoh.pdf
 __pycache__/
 *.pyc
 .env

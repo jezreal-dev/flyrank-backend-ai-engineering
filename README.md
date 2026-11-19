@@ -11,6 +11,7 @@ Welcome to the repository for the **FlyRank Backend AI Engineering** assignments
 | :--- | :--- | :--- | :--- | :--- |
 | **BE-01 (W1/W2 · A1)** | Build Your First CRUD API | Python, FastAPI, Uvicorn | [`./BE-01-crud-api`](./BE-01-crud-api) | Complete |
 | **BE-06 (W7 · A7)** | Your First Background Job (202 Accepted + Inngest Queues, Workers & Cron) | FastAPI, Inngest Python SDK, Inngest Dev Server | [`./BE-06-background-jobs`](./BE-06-background-jobs) | Complete (All 6 stages, retries with backoff, cron, AI rematch) |
+| **BE-08 (W7)** | PDF Report Generator Pipeline (Store & Link, SQL Aggregation, Print CSS) | FastAPI, SQLite, xhtml2pdf / ReportLab, Inngest | [`./BE-08-pdf-report-generator`](./BE-08-pdf-report-generator) | Complete (Stages 0–7, 202 Accepted, Monday Cron, AI rematch) |
 | **BE-09 (W7)** | Build an AI Decision Flow with React Flow + Inngest | Next.js 14, React Flow, Inngest, OpenAI SDK, Tailwind CSS | [`./BE-09-decision-flow`](./BE-09-decision-flow) | Complete (Phases 1–4, binary branching, live execution traces) |
 | **BE-07 (W6)** | Connect to an AI API: schema-validated book enrichment | FastAPI, Pydantic, OpenRouter-compatible API | [`./BE-01-crud-api`](./BE-01-crud-api#be-07-connect-to-an-ai-api) | Complete (8/8 eval passed, 100% schema & category accuracy) |
 | **BE-02 (W3 · A2)** | Connecting Your CRUD to the Database (Layered + SQLite) | 3-Layer (`routes` $\rightarrow$ `services` $\rightarrow$ `repositories` + `database.py` SQLite) | [`./BE-01-crud-api`](./BE-01-crud-api) | Complete |

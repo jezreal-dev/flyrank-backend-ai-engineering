@@ -1,0 +1,316 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [8 0 R 10 0 R 12 0 R 14 0 R] /Count 4 >>
+endobj
+btype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+7 0 obj
+<< /Length 5988 >>
+stream
+0.93 0.95 0.98 rg
+0.75 0.82 0.92 RG 0.75 w
+48.0 732.0 175.0 20.0 re B
+BT /F2 7.5 Tf 0.12 0.31 0.58 rg 56.0 750.0 Td (BACKEND AI ENGINEERING  -  WEEK 7) Tj ET
+BT /F2 18.0 Tf 0.08 0.12 0.20 rg 48.0 726.0 Td (BE-08: PDF Report Generator Pipeline) Tj ET
+BT /F1 9.5 Tf 0.35 0.40 0.48 rg 48.0 706.0 Td (SaaS Background Job Pattern, SQL Aggregation, Store & Link, and Print CSS Page-Break Architecture) Tj ET
+0.97 0.98 0.99 rg
+0.88 0.90 0.93 RG 0.75 w
+48.0 648.0 516.0 36.0 re B
+BT /F2 8.0 Tf 0.3 0.3 0.3 rg 60.0 670.0 Td (Intern Name:) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 60.0 658.0 Td (Jezreal Momoh) Tj ET
+BT /F2 8.0 Tf 0.3 0.3 0.3 rg 188.0 670.0 Td (Track & Assignment:) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 188.0 658.0 Td (Backend AI  -  BE-08) Tj ET
+BT /F2 8.0 Tf 0.3 0.3 0.3 rg 328.0 670.0 Td (Core Stack:) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 328.0 658.0 Td (FastAPI, SQLite, Inngest) Tj ET
+BT /F2 8.0 Tf 0.3 0.3 0.3 rg 448.0 670.0 Td (Submission Date:) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 448.0 658.0 Td (November 2026) Tj ET
+BT /F2 11.5 Tf 0.10 0.15 0.25 rg 48.0 634.0 Td (1. Executive Overview & SaaS Problem Context) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 620.0 Td (Generating executive reports is the most universal background job in modern software engineering. Every business-to-) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 608.8 Td (business SaaS product ships this feature. However, naive implementations frequently crash production environments through) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 597.6 Td (three fatal flaws: \(1\) passing 20 megabytes of raw PDF byte data through HTTP JSON responses, exhausting server memory) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 586.4 Td (and ballooning client payloads; \(2\) hitting the classic page-break trap where multi-page tables are sliced in half across) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 575.2 Td (text rows; and \(3\) loading thousands of database rows into application memory rather than leveraging database engine) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 564.0 Td (aggregations. This project designs and implements a robust, enterprise-grade FastAPI pipeline that completely overcomes) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 552.8 Td (these failure modes using pure SQL aggregation, deterministic artifact storage, strict idempotency, and asynchronous) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 541.6 Td (Inngest durable job orchestration.) Tj ET
+BT /F2 11.5 Tf 0.10 0.15 0.25 rg 48.0 520.4 Td (2. The Five Production Architectural Tenets) Tj ET
+BT /F2 8.5 Tf 0.12 0.31 0.58 rg 48.0 506.4 Td (- Tenet 1: Never Pass 20 MB of File Bytes in JSON \(Store & Link Pattern\)) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 495.4 Td (HTTP endpoints should never serialize binary documents into JSON bodies. Doing so causes 33% base64 encoding bloat and CPU) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 484.9 Td (lockups. Instead, POST /reports reserves an ID, generates the PDF to reports/<id>.pdf on disk, and returns a 201 Created) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 474.4 Td (metadata response containing the download URL \(/reports/<id>/file\). The dedicated file route streams binary application/pdf) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 463.9 Td (independently.) Tj ET
+BT /F2 8.5 Tf 0.12 0.31 0.58 rg 48.0 449.4 Td (- Tenet 2: Defeat the Page-Break Trap with Pure Print CSS) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 438.4 Td (When HTML is converted into multi-page PDFs, tables routinely split across page cuts, cutting text characters horizontally in) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 427.9 Td (half and leaving subsequent pages with orphaned data columns. Our pipeline injects strict print CSS rules: 'tr { page-break-) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 417.4 Td (inside: avoid; }' forces rows to remain atomic, while 'thead { display: table-header-group; }' automatically repeats table) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 406.9 Td (headers on all 7 pages.) Tj ET
+BT /F2 8.5 Tf 0.12 0.31 0.58 rg 48.0 392.4 Td (- Tenet 3: Push Aggregations Down into the Database Engine) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 381.4 Td (Application code should never pull 500,000 raw rows into Python memory to compute sums or find top products. The pipeline) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 370.9 Td (delegates all math to SQLite via COUNT\(*\), SUM\(amount\), substr\(created_at, 1, 10\), and GROUP BY ... ORDER BY ... LIMIT 5) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 360.4 Td (queries, executing in sub-milliseconds.) Tj ET
+BT /F2 8.5 Tf 0.12 0.31 0.58 rg 48.0 345.9 Td (- Tenet 4: Strict Idempotency \('Ask Twice, Get One'\)) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 334.9 Td (Rapid double-clicks, webhook retries, or impatient users must never trigger redundant CPU-intensive rendering or duplicate) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 324.4 Td (disk artifacts. A second POST /reports on the same day detects the existing generation and returns 200 OK with the existing) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 313.9 Td (report link. Clients who genuinely require fresh regeneration must explicitly pass {'force': true}.) Tj ET
+BT /F2 8.5 Tf 0.12 0.31 0.58 rg 48.0 299.4 Td (- Tenet 5: Asynchronous Background Orchestration \(The A7 Pattern\)) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 288.4 Td (For heavyweight workloads, synchronous HTTP requests risk hitting load balancer gateway timeouts \(e.g. AWS ALB 30s timeout\).) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 277.9 Td (The async route POST /reports/async returns 202 Accepted immediately with status 'pending' and dispatches a durable event to) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 58.0 267.4 Td (Inngest. Clients poll GET /reports/<id> until the background worker transitions status to 'done'.) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 48.0 42.0 Td (FlyRank Backend AI Engineering  -  BE-08 Submission  -  Jezreal Momoh) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 509.0 42.0 Td (Page 1 of 4) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Contents 7 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> >>
+endobj
+9 0 obj
+<< /Length 5804 >>
+stream
+BT /F2 13.0 Tf 0.08 0.12 0.20 rg 48.0 750.0 Td (3. Detailed Pipeline Implementation \(Stages 0 - 6\)) Tj ET
+BT /F1 9.0 Tf 0.35 0.40 0.48 rg 48.0 734.0 Td (Comprehensive breakdown of the six sequential stages delivering the PDF reporting service.) Tj ET
+BT /F2 9.0 Tf 0.12 0.31 0.58 rg 48.0 716.0 Td (Stage 0: Foundation & Health Endpoint) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 705.0 Td (FastAPI application initialized with structured logging, CORS handling, and GET /health returning {'status': 'ok'}. Verified) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 694.5 Td (clean scaffolding and established baseline project structure without external bloat.) Tj ET
+BT /F2 9.0 Tf 0.12 0.31 0.58 rg 48.0 680.0 Td (Stage 1: Seed Script with Idempotent Wipe-First Guarantee \(seed.py\)) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 669.0 Td (Populates report.db with 200 orders distributed realistically over the past 30 days across 6 product catalog categories and 15) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 658.5 Td (distinct customers. Implements the fundamental idempotency rule: executes 'DELETE FROM orders' before insertion so that) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 648.0 Td (invoking seed.py repeatedly leaves exactly 200 clean records. Added automatic schema migration checking PRAGMA table_info to) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 637.5 Td (safely support report status tracking.) Tj ET
+BT /F2 9.0 Tf 0.12 0.31 0.58 rg 48.0 623.0 Td (Stage 2: Database Aggregation Queries \(report_data.py\)) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 612.0 Td (Four targeted SQL aggregations execute directly on SQLite: \(1\) Total order count and gross sales volume \(SUM\(amount\)\); \(2\) Top) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 601.5 Td (5 products by revenue using GROUP BY product ORDER BY revenue DESC LIMIT 5; \(3\) Daily breakdown over the last 7 days using date) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 591.0 Td (substring truncation; and \(4\) Chronological raw order log with full transaction details.) Tj ET
+BT /F2 9.0 Tf 0.12 0.31 0.58 rg 48.0 576.5 Td (Stage 3: HTML-to-PDF Template & Page-Break Trap Avoidance \(renderer.py\)) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 565.5 Td (Generates a multi-page executive document with CSS print styling. Configures @page with A4 geometry and dynamic page counter) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 555.0 Td (footers. Applies 'tr { page-break-inside: avoid !important; }' to guarantee table rows never get cut horizontally, and 'thead {) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 544.5 Td (display: table-header-group; }' so column titles repeat cleanly across all 7 pages. Tested rendering with zero system library) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 534.0 Td (failures.) Tj ET
+BT /F2 9.0 Tf 0.12 0.31 0.58 rg 48.0 519.5 Td (Stage 4: Artifact Handling & Store-and-Link Pattern \(main.py\)) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 508.5 Td (POST /reports runs query -> render -> store pipeline, saving artifacts to reports/sales-report-<id>-<date>.pdf. Returns HTTP) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 498.0 Td (201 Created with JSON metadata containing {'id': <id>, 'status': 'done', 'file': '/reports/<id>/file'}. GET /reports/:id/file) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 487.5 Td (streams binary PDF bytes with Content-Type: application/pdf. JSON endpoints remain strictly decoupled from file contents.) Tj ET
+BT /F2 9.0 Tf 0.12 0.31 0.58 rg 48.0 473.0 Td (Stage 5: Idempotency Check & Force Regeneration) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 462.0 Td (Implements 'Ask twice, get one'. Same-day requests query reports where substr\(created_at, 1, 10\) matches today's date. If an) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 451.5 Td (artifact already exists on disk, returns HTTP 200 OK with the existing report ID. When a client explicitly submits {'force':) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 441.0 Td (true}, the bypass logic executes a fresh generation pipeline and returns HTTP 201 Created with a distinct ID.) Tj ET
+BT /F2 9.0 Tf 0.12 0.31 0.58 rg 48.0 426.5 Td (Stage 6: Inngest Asynchronous Background Job & Weekly Cron Stretch) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 415.5 Td (Exposes POST /reports/async returning HTTP 202 Accepted with status 'pending'. Dispatches event 'report/generate' to Inngest) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 405.0 Td (with multi-step durability: step.run\('query-sql-data'\) -> step.run\('render-html-to-pdf'\) -> step.run\('store-artifact-and-) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 394.5 Td (finalize'\). Automatically generates scheduled weekly reports every Monday at 08:00 AM UTC via Inngest TriggerCron\('0 8 * * 1'\).) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 56.0 384.0 Td (Features seamless local background worker fallback.) Tj ET
+0.96 0.97 0.99 rg
+0.85 0.88 0.92 RG 0.75 w
+48.0 295.5 516.0 70.0 re B
+BT /F2 8.0 Tf 0.12 0.31 0.58 rg 58.0 353.5 Td (CORE SQL AGGREGATION PATTERNS (Executed in report_data.py):) Tj ET
+BT /F3 7.2 Tf 0.2 0.25 0.3 rg 58.0 341.5 Td (SELECT COUNT\(*\) as total_orders, COALESCE\(SUM\(amount\), 0.0\) as total_revenue FROM orders;) Tj ET
+BT /F3 7.2 Tf 0.2 0.25 0.3 rg 58.0 331.5 Td (SELECT product, COUNT\(*\) as units_sold, SUM\(amount\) as revenue FROM orders GROUP BY product ORDER BY revenue DESC LIMIT 5;) Tj ET
+BT /F3 7.2 Tf 0.2 0.25 0.3 rg 58.0 321.5 Td (SELECT substr\(created_at, 1, 10\) as order_date, COUNT\(*\) as order_count, SUM\(amount\) as daily_revenue) Tj ET
+BT /F3 7.2 Tf 0.2 0.25 0.3 rg 58.0 311.5 Td (FROM orders GROUP BY order_date ORDER BY order_date DESC LIMIT 7;) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 48.0 42.0 Td (FlyRank Backend AI Engineering  -  BE-08 Submission  -  Jezreal Momoh) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 509.0 42.0 Td (Page 2 of 4) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Contents 9 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> >>
+endobj
+11 0 obj
+<< /Length 5649 >>
+stream
+BT /F2 13.0 Tf 0.08 0.12 0.20 rg 48.0 750.0 Td (4. Verification & Automated Test Suite Proofs) Tj ET
+BT /F1 9.0 Tf 0.35 0.40 0.48 rg 48.0 734.0 Td (Validation against 9 automated test suites in test_api.py, ensuring 100% specification compliance.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 696.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 699.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 703.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 703.0 Td (Test Suite 1: Database Seeding & Clean State) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 690.0 Td (Seeded exactly 200 orders across 30 days. Verified delete-first idempotency leaves zero orphaned records.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 657.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 660.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 664.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 664.0 Td (Test Suite 2: GET /health Baseline Check) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 651.0 Td (Status 200 OK. Scaffolding operational and routing layer verified.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 618.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 621.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 625.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 625.0 Td (Test Suite 3: POST /reports \(Stage 4 Checkpoint\)) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 612.0 Td (Status 201 Created. Generated Report #7 with download link /reports/7/file. Payload strictly decoupled from PDF bytes.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 579.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 582.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 586.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 586.0 Td (Test Suite 4: GET /reports/:id Metadata Retrieval) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 573.0 Td (Status 200 OK. Confirmed artifact stored at reports/sales-report-7-2026-11-19.pdf with valid timestamp and status 'done'.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 540.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 543.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 547.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 547.0 Td (Test Suite 5: GET /reports/:id/file PDF Stream) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 534.0 Td (Status 200 OK. Downloaded 38,904 bytes. Content-Type: application/pdf. Verified binary starts with standard %PDF magic header.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 501.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 504.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 508.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 508.0 Td (Test Suite 6: GET /reports/999999 Unknown ID) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 495.0 Td (Status 404 Not Found. Proper error handling when requesting non-existent report IDs.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 462.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 465.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 469.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 469.0 Td (Test Suite 7: Stage 5 Idempotency \('Ask Twice, Get One'\)) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 456.0 Td (Status 200 OK. Second POST /reports on same day returned existing Report #7 without generating a duplicate PDF file.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 423.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 426.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 430.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 430.0 Td (Test Suite 8: Stage 5 Force Bypass \({'force': True}\)) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 417.0 Td (Status 201 Created. Request with force=True generated fresh Report #8 with distinct timestamp and unique disk artifact.) Tj ET
+0.98 0.99 1.00 rg
+0.88 0.90 0.93 RG 0.50 w
+48.0 384.0 516.0 22.0 re B
+0.88 0.96 0.90 rg
+0.60 0.85 0.65 RG 0.50 w
+54.0 387.0 46.0 14.0 re B
+BT /F2 7.0 Tf 0.05 0.50 0.15 rg 60.0 391.0 Td (PASSED) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 106.0 391.0 Td (Test Suite 9: Stretch Async Background Job \(POST /reports/async\)) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 56.0 378.0 Td (Status 202 Accepted. Enqueued background worker. Polled GET /reports/9 from 'pending' to 'done'. Downloaded verified PDF.) Tj ET
+0.10 0.13 0.18 rg
+0.20 0.25 0.35 RG 0.75 w
+48.0 286.0 516.0 75.0 re B
+BT /F2 7.8 Tf 0.40 0.75 0.95 rg 58.0 348.0 Td (TERMINAL VERIFICATION PROOF: test_api.py EXECUTION OUTPUT) Tj ET
+BT /F3 6.8 Tf 0.85 0.90 0.95 rg 58.0 337.0 Td (=== 3. Testing POST /reports \(Stage 4 Checkpoint\) ===) Tj ET
+BT /F3 6.8 Tf 0.85 0.90 0.95 rg 58.0 327.5 Td (POST /reports status: 201 | body: {'id': 7, 'status': 'done', 'file': '/reports/7/file'}) Tj ET
+BT /F3 6.8 Tf 0.85 0.90 0.95 rg 58.0 318.0 Td (=== 7. Testing Stage 5 Idempotency \(Ask twice, get one\) ===) Tj ET
+BT /F3 6.8 Tf 0.85 0.90 0.95 rg 58.0 308.5 Td (Second POST /reports status: 200 | body: {'id': 7, 'message': 'Report already generated today'}) Tj ET
+BT /F3 6.8 Tf 0.85 0.90 0.95 rg 58.0 299.0 Td (=== 9. Testing Stretch Async Background Job \(POST /reports/async\) ===) Tj ET
+BT /F3 6.8 Tf 0.85 0.90 0.95 rg 58.0 289.5 Td (Async POST status: 202 Accepted | Polled report #9 status: done | Downloaded: 38,904 bytes \(%PDF\)) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 48.0 42.0 Td (FlyRank Backend AI Engineering  -  BE-08 Submission  -  Jezreal Momoh) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 509.0 42.0 Td (Page 3 of 4) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Contents 11 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> >>
+endobj
+13 0 obj
+<< /Length 4712 >>
+stream
+BT /F2 13.0 Tf 0.08 0.12 0.20 rg 48.0 750.0 Td (5. Stage 7: The AI Rematch \(Architecture Benchmark\)) Tj ET
+BT /F1 9.0 Tf 0.35 0.40 0.48 rg 48.0 734.0 Td (Comparative evaluation between our production pipeline and an unconstrained AI-generated version.) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 716.0 Td (We quarantined a reference AI implementation in ai-version/app.py generated from the generic prompt: 'Write a FastAPI) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 704.8 Td (backend that generates a weekly PDF sales report from an SQLite database of orders'. We then executed our automated side-) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 693.6 Td (by-side benchmark \(ai-version/benchmark_diff.py\). The results demonstrate why unguided AI generates code that fails in) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 682.4 Td (real-world production environments:) Tj ET
+0.99 0.99 1.00 rg
+0.85 0.88 0.92 RG 0.75 w
+48.0 528.2 516.0 135.0 re B
+0.92 0.94 0.97 rg
+0.80 0.84 0.90 RG 0.50 w
+48.0 643.2 516.0 20.0 re B
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 56.0 649.2 Td (Evaluation Dimension) Tj ET
+BT /F2 8.0 Tf 0.65 0.15 0.15 rg 168.0 649.2 Td (Naive AI Version) Tj ET
+BT /F2 8.0 Tf 0.10 0.45 0.15 rg 298.0 649.2 Td (Our Production Pipeline) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.28 rg 448.0 649.2 Td (Production Impact) Tj ET
+BT /F2 7.5 Tf 0.20 0.25 0.35 rg 56.0 629.2 Td (Payload Size) Tj ET
+BT /F1 7.2 Tf 0.55 0.15 0.15 rg 168.0 629.2 Td (13,631 B \(Base64 in JSON\)) Tj ET
+BT /F2 7.2 Tf 0.08 0.45 0.15 rg 298.0 629.2 Td (147 B \(Store & Link\)) Tj ET
+BT /F1 7.2 Tf 0.25 0.30 0.35 rg 448.0 629.2 Td (98.9% API payload reduction) Tj ET
+BT /F2 7.5 Tf 0.20 0.25 0.35 rg 56.0 611.2 Td (SQL Aggregation) Tj ET
+BT /F1 7.2 Tf 0.55 0.15 0.15 rg 168.0 611.2 Td (SELECT * + Python loops) Tj ET
+BT /F2 7.2 Tf 0.08 0.45 0.15 rg 298.0 611.2 Td (Pure SQL SUM\(\) & GROUP BY) Tj ET
+BT /F1 7.2 Tf 0.25 0.30 0.35 rg 448.0 611.2 Td (Prevents server OOM crashes) Tj ET
+BT /F2 7.5 Tf 0.20 0.25 0.35 rg 56.0 593.2 Td (Page-Break Trap) Tj ET
+BT /F1 7.2 Tf 0.55 0.15 0.15 rg 168.0 593.2 Td (Missing \(Sliced table rows\)) Tj ET
+BT /F2 7.2 Tf 0.08 0.45 0.15 rg 298.0 593.2 Td (tr { page-break-inside: avoid; }) Tj ET
+BT /F1 7.2 Tf 0.25 0.30 0.35 rg 448.0 593.2 Td (Zero sliced rows across 7 pages) Tj ET
+BT /F2 7.5 Tf 0.20 0.25 0.35 rg 56.0 575.2 Td (Header Repeat) Tj ET
+BT /F1 7.2 Tf 0.55 0.15 0.15 rg 168.0 575.2 Td (Missing \(Orphaned columns\)) Tj ET
+BT /F2 7.2 Tf 0.08 0.45 0.15 rg 298.0 575.2 Td (thead { display: table-header-group; }) Tj ET
+BT /F1 7.2 Tf 0.25 0.30 0.35 rg 448.0 575.2 Td (Headers repeated on all pages) Tj ET
+BT /F2 7.5 Tf 0.20 0.25 0.35 rg 56.0 557.2 Td (Idempotency) Tj ET
+BT /F1 7.2 Tf 0.55 0.15 0.15 rg 168.0 557.2 Td (None \(Duplicates on click\)) Tj ET
+BT /F2 7.2 Tf 0.08 0.45 0.15 rg 298.0 557.2 Td (Date-based cache + {force: true}) Tj ET
+BT /F1 7.2 Tf 0.25 0.30 0.35 rg 448.0 557.2 Td (Zero duplicate CPU/disk waste) Tj ET
+BT /F2 7.5 Tf 0.20 0.25 0.35 rg 56.0 539.2 Td (Job Queue) Tj ET
+BT /F1 7.2 Tf 0.55 0.15 0.15 rg 168.0 539.2 Td (Blocking sync handler) Tj ET
+BT /F2 7.2 Tf 0.08 0.45 0.15 rg 298.0 539.2 Td (Async 202 Accepted + Inngest) Tj ET
+BT /F1 7.2 Tf 0.25 0.30 0.35 rg 448.0 539.2 Td (Zero HTTP gateway timeouts) Tj ET
+BT /F2 11.5 Tf 0.10 0.15 0.25 rg 48.0 514.2 Td (6. Official Submission Links & Repository Access) Tj ET
+BT /F2 8.2 Tf 0.15 0.20 0.30 rg 48.0 500.2 Td (- Backend Engineering GitHub Repo:) Tj ET
+BT /F3 7.8 Tf 0.12 0.31 0.58 rg 48.0 489.2 Td (  https://github.com/jezreal-dev/flyrank-backend-ai-engineering) Tj ET
+BT /F2 8.2 Tf 0.15 0.20 0.30 rg 48.0 477.2 Td (- BE-08 Source Directory:) Tj ET
+BT /F3 7.8 Tf 0.12 0.31 0.58 rg 48.0 466.2 Td (  https://github.com/jezreal-dev/flyrank-backend-ai-engineering/tree/main/BE-08-pdf-report-generator) Tj ET
+BT /F2 8.2 Tf 0.15 0.20 0.30 rg 48.0 454.2 Td (- Live Student Portfolio:) Tj ET
+BT /F3 7.8 Tf 0.12 0.31 0.58 rg 48.0 443.2 Td (  https://jezreal-momoh-portfolio.netlify.app) Tj ET
+BT /F2 8.2 Tf 0.15 0.20 0.30 rg 48.0 431.2 Td (- Week 7 Assignment Submission Card:) Tj ET
+BT /F3 7.8 Tf 0.12 0.31 0.58 rg 48.0 420.2 Td (  https://internship.flyrank.ai/intern/assignments/CUSTOM-MR0IXLP8-E10E1EC0) Tj ET
+0.95 0.97 0.99 rg
+0.75 0.82 0.90 RG 0.75 w
+48.0 364.2 516.0 36.0 re B
+BT /F2 8.0 Tf 0.12 0.31 0.58 rg 60.0 386.2 Td (ENGINEERING SIGN-OFF & VERIFICATION SUMMARY) Tj ET
+BT /F1 7.8 Tf 0.30 0.35 0.40 rg 60.0 374.2 Td (All 8 pipeline stages, 9 automated test suites, and the AI rematch benchmark are verified complete. Built by Jezreal Momoh.) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 48.0 42.0 Td (FlyRank Backend AI Engineering  -  BE-08 Submission  -  Jezreal Momoh) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 509.0 42.0 Td (Page 4 of 4) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Contents 13 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> >>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000110 00000 n 
+0000000180 00000 n 
+0000000255 00000 n 
+0000000323 00000 n 
+0000000396 00000 n 
+0000006436 00000 n 
+0000006596 00000 n 
+0000012452 00000 n 
+0000012613 00000 n 
+0000018315 00000 n 
+0000018477 00000 n 
+0000023242 00000 n 
+trailer
+<< /Size 15 /Root 1 0 R >>
+startxref
+23404
+%%EOF
