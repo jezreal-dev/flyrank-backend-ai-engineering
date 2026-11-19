@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-11-19T16:46:26.427148+00:00",
+  "endpoint": "/tasks",
+  "method": "POST",
+  "request_payload": {
+    "title": "X"
+  },
+  "status_code": 500,
+  "headers": {
+    "content-type": "text/plain"
+  },
+  "response_body": {
+    "error": "Broken schema invariant"
+  },
+  "latency_ms": 12.5,
+  "content_hash": "deadbeef00000000000000000000000000000000000000000000000000000000"
+}

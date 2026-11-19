@@ -1,0 +1,23 @@
+{
+  "contract_version": "1.0.0",
+  "endpoint": "/tasks",
+  "method": "POST",
+  "request": {
+    "content_type": "application/json",
+    "required_fields": ["title"],
+    "properties": {
+      "title": { "type": "string", "min_length": 3, "max_length": 100 },
+      "description": { "type": "string", "max_length": 500 }
+    }
+  },
+  "response": {
+    "expected_status": 201,
+    "content_type": "application/json",
+    "required_fields": ["id", "title", "description", "status", "created_at"],
+    "allowed_statuses": ["pending", "in_progress", "completed"]
+  },
+  "invariants": {
+    "max_latency_ms": 500,
+    "immutable_id_format": "task_"
+  }
+}

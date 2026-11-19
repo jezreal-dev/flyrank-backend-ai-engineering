@@ -1,0 +1,14 @@
+{
+  "step": 1,
+  "gaps": [
+    "Expected status 201, received 500",
+    "Missing required response field: 'id'",
+    "Missing required response field: 'title'",
+    "Missing required response field: 'description'",
+    "Missing required response field: 'status'",
+    "Missing required response field: 'created_at'",
+    "Invalid status value: 'None'",
+    "Task ID 'None' does not start with 'task_'"
+  ],
+  "timestamp": "2026-11-19T16:46:26.428715+00:00"
+}

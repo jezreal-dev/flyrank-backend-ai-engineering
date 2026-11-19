@@ -1,0 +1,25 @@
+{
+  "harness_status": "DONE",
+  "step": 1,
+  "contract_fingerprint": "8a798523ab22216e60c1b40bc1fb12cf67466b9df0944a8c08caadc8aeeb80c4",
+  "timestamp": "2026-11-19T16:46:26.406279+00:00",
+  "endpoint": "/tasks",
+  "method": "POST",
+  "status_code": 201,
+  "latency_ms": 15.95,
+  "response_body": {
+    "id": "task_309cdb23",
+    "title": "Build harness verification probe",
+    "description": "Verify POST /tasks contract",
+    "status": "pending",
+    "created_at": "2026-11-19T16:46:26.398986+00:00"
+  },
+  "content_hash": "c62d71a24582854c6d78773bd22a5d88f5f561f96f9e7b6994f7e92783ddedf8",
+  "verified_invariants": [
+    "HTTP Status == 201 Created",
+    "Schema fields [id, title, description, status, created_at] verified",
+    "Allowed status in ('pending', 'in_progress', 'completed')",
+    "Latency < 500ms ceiling",
+    "Contract SHA-256 fingerprint verified"
+  ]
+}
