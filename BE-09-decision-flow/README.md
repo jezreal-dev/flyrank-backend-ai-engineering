@@ -73,6 +73,12 @@ When an inquiry is dispatched, Inngest executes each step durably. The active tr
 
 ---
 
+## Submission Document
+- **Official PDF Deliverable**: [`BE-09_AI_Decision_Flow_Jezreal_Momoh.pdf`](./BE-09_AI_Decision_Flow_Jezreal_Momoh.pdf) (4 pages, clean typography, zero divider lines, embedded UI screenshots, empirical traces, and pass rubric).
+
+
+---
+
 ## Key Features
 
 1. **Strict Binary AI Classification Engine (`src/lib/llm.ts`)**:
