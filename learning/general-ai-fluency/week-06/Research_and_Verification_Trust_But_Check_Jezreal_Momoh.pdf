@@ -1,0 +1,215 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [8 0 R 10 0 R 12 0 R] /Count 3 >>                                                                
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+7 0 obj
+<< /Length 5194 >>
+stream
+0.93 0.95 0.98 rg
+0.75 0.82 0.92 RG 0.75 w
+48.0 732.0 195.0 20.0 re B
+BT /F2 7.2 Tf 0.12 0.31 0.58 rg 56.0 750.0 Td (GENERAL AI FLUENCY  -  RESEARCH & VERIFICATION) Tj ET
+BT /F2 18.0 Tf 0.08 0.12 0.20 rg 48.0 726.0 Td (Research & Verification: Trust, But Check) Tj ET
+BT /F1 9.5 Tf 0.35 0.40 0.48 rg 48.0 706.0 Td (The Senior-Editor Step: Auditing Load-Bearing Claims, SIFT Protocol, and AI Text Forensics) Tj ET
+0.97 0.98 0.99 rg
+0.88 0.90 0.93 RG 0.75 w
+48.0 648.0 516.0 36.0 re B
+BT /F2 8.0 Tf 0.3 0.3 0.3 rg 60.0 670.0 Td (Session Host:) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 60.0 658.0 Td (Eldin  -  Director of AI) Tj ET
+BT /F2 8.0 Tf 0.3 0.3 0.3 rg 188.0 670.0 Td (Track & Event:) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 188.0 658.0 Td (General AI Fluency  -  W6) Tj ET
+BT /F2 8.0 Tf 0.3 0.3 0.3 rg 328.0 670.0 Td (Student Name:) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 328.0 658.0 Td (Jezreal Momoh) Tj ET
+BT /F2 8.0 Tf 0.3 0.3 0.3 rg 448.0 670.0 Td (Session Date:) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 448.0 658.0 Td (August 20, 2026) Tj ET
+BT /F2 11.5 Tf 0.10 0.15 0.25 rg 48.0 634.0 Td (1. Executive Overview: The Senior-Editor Step \('Is It True?'\)) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 620.0 Td (Modern AI enables engineers to produce content and code at unprecedented velocity. However, velocity without verification) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 608.8 Td (results in shipping hallucinated or legally hazardous material. Large language models maintain the exact same calm,) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 597.6 Td (persuasive, grammatically flawless tone whether they are stating undeniable truth or fabricating metrics. In the) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 586.4 Td (professional workflow, verification is the senior-editor gate: the non-negotiable inspection performed before a client or) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 575.2 Td (stakeholder sees anything. The foundational question is never 'Does it sound good?' but 'Is it true?') Tj ET
+BT /F2 11.5 Tf 0.10 0.15 0.25 rg 48.0 554.0 Td (2. SIFT: The Four Moves \(Mike Caulfield & Lateral Reading\)) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 540.0 Td (Rooted in Stanford History Education Group \(SHEG / Sam Wineburg\) research observing professional fact-checkers versus) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 528.8 Td (academics, digital literacy expert Mike Caulfield developed SIFT as a rapid, lightweight heuristic to evaluate online) Tj ET
+BT /F1 8.5 Tf 0.22 0.22 0.22 rg 48.0 517.6 Td (claims:) Tj ET
+0.94 0.96 0.99 rg
+0.78 0.84 0.92 RG 0.50 w
+48.0 480.4 120.0 15.0 re B
+BT /F2 7.5 Tf 0.12 0.31 0.58 rg 56.0 486.4 Td (S - STOP) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 54.0 476.4 Td (Pause immediately when encountering a claim, especially if it sparks emotional validation, excitement, or outrage. Check) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 54.0 465.9 Td (whether you know the source and its reputation before building on it or passing it along.) Tj ET
+0.94 0.96 0.99 rg
+0.78 0.84 0.92 RG 0.50 w
+48.0 433.4 120.0 15.0 re B
+BT /F2 7.5 Tf 0.12 0.31 0.58 rg 56.0 439.4 Td (I - INVESTIGATE THE SOURCE) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 54.0 429.4 Td (Look at WHO published the claim before spending cognitive energy reading what it says. Practice Lateral Reading: immediately) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 54.0 418.9 Td (leave the page and open fresh browser tabs to discover what independent authorities say ABOUT the publisher.) Tj ET
+0.94 0.96 0.99 rg
+0.78 0.84 0.92 RG 0.50 w
+48.0 386.4 120.0 15.0 re B
+BT /F2 7.5 Tf 0.12 0.31 0.58 rg 56.0 392.4 Td (F - FIND BETTER COVERAGE) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 54.0 382.4 Td (Never settle for an obscure, low-quality source. If a claim is empirically true, established journalism, peer-reviewed) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 54.0 371.9 Td (journals, or official regulatory filings will have covered it with superior context and verifiable receipts.) Tj ET
+0.94 0.96 0.99 rg
+0.78 0.84 0.92 RG 0.50 w
+48.0 339.4 120.0 15.0 re B
+BT /F2 7.5 Tf 0.12 0.31 0.58 rg 56.0 345.4 Td (T - TRACE CLAIMS TO CONTEXT) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 54.0 335.4 Td (Follow quotes, statistics, images, and video back to the primary source \(unedited dataset, court filing, or raw academic) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 54.0 324.9 Td (paper\). In secondary aggregation and AI summaries, vital context is routinely stripped and meaning inverted.) Tj ET
+0.97 0.98 0.99 rg
+0.85 0.88 0.92 RG 0.75 w
+48.0 258.4 516.0 48.0 re B
+BT /F2 8.0 Tf 0.12 0.31 0.58 rg 58.0 294.4 Td (LATERAL READING VS VERTICAL (DEEP) READING:) Tj ET
+BT /F1 7.5 Tf 0.25 0.30 0.35 rg 58.0 283.4 Td (Vertical Reading (staying on the page, evaluating layout, reading the self-authored 'About Us' page) fails in the AI era.) Tj ET
+BT /F1 7.5 Tf 0.25 0.30 0.35 rg 58.0 273.4 Td (Lateral Reading leaves the tab immediately: what the rest of the web says about a source is 10x more reliable than what it says about itself.) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 48.0 42.0 Td (FlyRank General AI Fluency  -  Research & Verification: Trust, But Check  -  Jezreal Momoh) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 509.0 42.0 Td (Page 1 of 3) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Contents 7 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> >>
+endobj
+9 0 obj
+<< /Length 4727 >>
+stream
+BT /F2 13.0 Tf 0.08 0.12 0.20 rg 48.0 750.0 Td (3. The AI Research Pipeline & How Citations Fail) Tj ET
+BT /F1 9.0 Tf 0.35 0.40 0.48 rg 48.0 734.0 Td (Modern AI research is a multi-stage agentic pipeline with failure points compounding at every transition.) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 716.0 Td (Modern LLM research engines do not perform a single act of cognitive recall. They run an agentic pipeline: User Query ->) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 704.8 Td (Search Queries -> Source Selection -> Extraction -> Synthesis -> Citations -> Final Answer. Failures compound along each) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 693.6 Td (seam: search APIs prioritize SEO listicles over primary papers; extraction drops numeric footnotes and caveats; synthesis) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 682.4 Td (blends conflicting papers into a single false narrative; and citations are routinely hallucinated or mapped onto) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 48.0 671.2 Td (assertions they do not support.) Tj ET
+0.95 0.97 0.99 rg
+0.80 0.85 0.92 RG 0.75 w
+48.0 608.0 516.0 44.0 re B
+BT /F2 7.8 Tf 0.12 0.31 0.58 rg 58.0 640.0 Td (EMPIRICAL BENCHMARKS ON AI RESEARCH ENGINE RELIABILITY:) Tj ET
+BT /F1 7.3 Tf 0.25 0.30 0.35 rg 58.0 629.0 Td (- Columbia University Tow Center (2025): 1,600 queries across 8 AI search engines returned incorrect answers >60% of the time.) Tj ET
+BT /F1 7.3 Tf 0.25 0.30 0.35 rg 58.0 619.0 Td (- BBC & EBU Investigation: 3,000+ AI answers audited; nearly 50% had significant errors, 1 in 5 had severe factual inaccuracies.) Tj ET
+BT /F2 9.5 Tf 0.10 0.15 0.25 rg 48.0 598.0 Td (The Six Ways AI Citations Fail in Practice:) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.30 rg 48.0 586.0 Td (- 1. Nonexistent Source:) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 58.0 575.5 Td (  Hallucinated URLs, fabricated authors, or dead DOIs that sound plausible but never existed.) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.30 rg 48.0 563.5 Td (- 2. Metadata Mismatch:) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 58.0 553.0 Td (  The cited article is real, but publication year, authors, or sponsoring institutions are scrambled.) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.30 rg 48.0 541.0 Td (- 3. Unsubstantiated Claim:) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 58.0 530.5 Td (  The source exists, but nowhere in its body does it make or validate the statement the model attributed to it.) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.30 rg 48.0 518.5 Td (- 4. Overstated Support:) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 58.0 508.0 Td (  The research paper claims modest laboratory correlation; the LLM asserts universal, definitive causation.) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.30 rg 48.0 496.0 Td (- 5. Outdated Context:) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 58.0 485.5 Td (  Factually accurate when written, but rendered obsolete by newer regulatory rulings or market events.) Tj ET
+BT /F2 8.0 Tf 0.15 0.20 0.30 rg 48.0 473.5 Td (- 6. Circular Loops:) Tj ET
+BT /F1 7.8 Tf 0.30 0.30 0.30 rg 58.0 463.0 Td (  Secondary aggregator blogs circularly quoting AI summaries without any underlying empirical proof.) Tj ET
+BT /F2 11.5 Tf 0.10 0.15 0.25 rg 48.0 445.0 Td (4. Reading for Load-Bearing Claims & Claim Atomization) Tj ET
+BT /F1 8.2 Tf 0.25 0.25 0.25 rg 48.0 431.0 Td (A load-bearing claim is an assertion that carries the weight of a document's core thesis. If that single claim is disproven,) Tj ET
+BT /F1 8.2 Tf 0.25 0.25 0.25 rg 48.0 420.2 Td (the entire strategic recommendation collapses. Writers must distinguish between three distinct layers: Factual Claims \(what) Tj ET
+BT /F1 8.2 Tf 0.25 0.25 0.25 rg 48.0 409.4 Td (happened\), Interpretations \(what the author believes it means\), and Recommendations \(what action they advocate\).) Tj ET
+0.98 0.99 1.00 rg
+0.86 0.89 0.94 RG 0.75 w
+48.0 324.6 516.0 68.0 re B
+BT /F2 7.8 Tf 0.12 0.31 0.58 rg 58.0 380.6 Td (PRACTICAL ATOMIZATION OF A COMPOUND CLAIM:) Tj ET
+BT /F4 7.2 Tf 0.20 0.25 0.30 rg 58.0 369.6 Td (Compound: 'FlyRank increased organic traffic by 60% for European SaaS clients in 2025.') Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 58.0 357.6 Td (1. FlyRank performed the work  |  2. Clients were SaaS businesses  |  3. Clients operated in Europe) Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 58.0 347.6 Td (4. Organic traffic increased   |  5. Magnitude was exactly 60%     |  6. Measurement period was 2025) Tj ET
+BT /F2 7.0 Tf 0.12 0.31 0.58 rg 58.0 337.6 Td (Three Audit Lists to Track: 1. Empirical Claims  |  2. Implicit Assumptions  |  3. Critical Open Questions) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 48.0 42.0 Td (FlyRank General AI Fluency  -  Research & Verification: Trust, But Check  -  Jezreal Momoh) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 509.0 42.0 Td (Page 2 of 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Contents 9 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> >>
+endobj
+11 0 obj
+<< /Length 4954 >>
+stream
+BT /F2 13.0 Tf 0.08 0.12 0.20 rg 48.0 750.0 Td (5. The Seven Claim Statuses for Professional Audits) Tj ET
+BT /F1 9.0 Tf 0.35 0.40 0.48 rg 48.0 734.0 Td (The Golden Rule: Never ask the model to confirm itself. Use an objective verification taxonomy.) Tj ET
+0.99 0.99 1.00 rg
+0.86 0.89 0.93 RG 0.75 w
+48.0 578.0 516.0 138.0 re B
+0.92 0.94 0.97 rg
+0.80 0.84 0.90 RG 0.50 w
+48.0 698.0 516.0 18.0 re B
+BT /F2 7.5 Tf 0.15 0.20 0.28 rg 56.0 703.0 Td (Status) Tj ET
+BT /F2 7.5 Tf 0.15 0.20 0.28 rg 133.0 703.0 Td (Audit Definition) Tj ET
+BT /F2 7.5 Tf 0.15 0.20 0.28 rg 388.0 703.0 Td (Prescribed Editorial Action) Tj ET
+BT /F2 7.2 Tf 0.12 0.31 0.58 rg 56.0 686.0 Td (Verified) Tj ET
+BT /F1 7.0 Tf 0.20 0.25 0.35 rg 133.0 686.0 Td (Independent primary evidence confirms claim verbatim.) Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 388.0 686.0 Td (Keep claim; archive primary source URL and exact quote.) Tj ET
+BT /F2 7.2 Tf 0.12 0.31 0.58 rg 56.0 670.0 Td (Unsupported) Tj ET
+BT /F1 7.0 Tf 0.20 0.25 0.35 rg 133.0 670.0 Td (Insufficient evidence found; may be true but unearned.) Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 388.0 670.0 Td (Seek primary evidence; if unfindable, cut from deliverable.) Tj ET
+BT /F2 7.2 Tf 0.12 0.31 0.58 rg 56.0 654.0 Td (Outdated) Tj ET
+BT /F1 7.0 Tf 0.20 0.25 0.35 rg 133.0 654.0 Td (Accurate when written, but superseded by newer events.) Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 388.0 654.0 Td (Update with current data or revise temporal phrasing.) Tj ET
+BT /F2 7.2 Tf 0.12 0.31 0.58 rg 56.0 638.0 Td (Vague) Tj ET
+BT /F1 7.0 Tf 0.20 0.25 0.35 rg 133.0 638.0 Td (Qualitative adjectives \('leading', 'significant'\) without metrics.) Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 388.0 638.0 Td (Rewrite with concrete benchmarks, numbers, or explicit dates.) Tj ET
+BT /F2 7.2 Tf 0.12 0.31 0.58 rg 56.0 622.0 Td (Incorrect) Tj ET
+BT /F1 7.0 Tf 0.20 0.25 0.35 rg 133.0 622.0 Td (Directly contradicted by authoritative evidence.) Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 388.0 622.0 Td (Correct factual inaccuracy or remove claim immediately.) Tj ET
+BT /F2 7.2 Tf 0.12 0.31 0.58 rg 56.0 606.0 Td (Risky) Tj ET
+BT /F1 7.0 Tf 0.20 0.25 0.35 rg 133.0 606.0 Td (Plausible, but catastrophic legal/financial downside if false.) Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 388.0 606.0 Td (Escalate for senior domain expert or legal counsel sign-off.) Tj ET
+BT /F2 7.2 Tf 0.12 0.31 0.58 rg 56.0 590.0 Td (Remove) Tj ET
+BT /F1 7.0 Tf 0.20 0.25 0.35 rg 133.0 590.0 Td (Low-value, unearned, or disproportionately hazardous.) Tj ET
+BT /F1 7.0 Tf 0.30 0.35 0.40 rg 388.0 590.0 Td (Delete claim without expending further engineering hours.) Tj ET
+BT /F2 11.5 Tf 0.10 0.15 0.25 rg 48.0 568.0 Td (6. Spotting AI Writing: Wikipedia's WP:AISIGNS Taxonomy) Tj ET
+BT /F2 7.8 Tf 0.15 0.20 0.30 rg 48.0 554.0 Td (- Formulaic Lexicon:) Tj ET
+BT /F1 7.5 Tf 0.30 0.30 0.30 rg 56.0 544.0 Td (  Overuse of marker vocabulary: delve, tapestry, testament, beacon, landscape, interplay, foster, underscore, pivotal.) Tj ET
+BT /F2 7.8 Tf 0.15 0.20 0.30 rg 48.0 532.2 Td (- Negative Parallelism:) Tj ET
+BT /F1 7.5 Tf 0.30 0.30 0.30 rg 56.0 522.2 Td (  Repetitive antithetical framing: 'It is not merely a tool; rather, it represents a transformative paradigm shift.') Tj ET
+BT /F2 7.8 Tf 0.15 0.20 0.30 rg 48.0 510.4 Td (- The Rule of Three:) Tj ET
+BT /F1 7.5 Tf 0.30 0.30 0.30 rg 56.0 500.4 Td (  Compulsive grouping of adjectives or nouns in triads: 'innovative, resilient, and transformative'.) Tj ET
+BT /F2 7.8 Tf 0.15 0.20 0.30 rg 48.0 488.6 Td (- Structural Fluff:) Tj ET
+BT /F1 7.5 Tf 0.30 0.30 0.30 rg 56.0 478.6 Td (  Generic false ranges \('from intimate workshops to global movements'\), over-bolding, and redundant 'In conclusion' summaries.) Tj ET
+0.95 0.97 0.99 rg
+0.75 0.82 0.90 RG 0.75 w
+48.0 386.8 516.0 76.0 re B
+BT /F2 7.8 Tf 0.12 0.31 0.58 rg 58.0 450.8 Td (THE PROFESSIONAL MOVE & FIVE CORE TAKEAWAYS:) Tj ET
+BT /F4 7.2 Tf 0.20 0.25 0.35 rg 58.0 439.8 Td (Never accuse or play gotcha detective. Treat all incoming AI text as unverified drafts and audit the load-bearing claims.) Tj ET
+BT /F1 6.8 Tf 0.30 0.35 0.40 rg 58.0 429.8 Td (1. AI research answers are multi-stage agentic pipelines, not acts of recall.) Tj ET
+BT /F1 6.8 Tf 0.30 0.35 0.40 rg 58.0 421.3 Td (2. Failures compound at every step: query formulation, search, extraction, synthesis, and citation.) Tj ET
+BT /F1 6.8 Tf 0.30 0.35 0.40 rg 58.0 412.8 Td (3. Verify atomic claims, never broad paragraphs.) Tj ET
+BT /F1 6.8 Tf 0.30 0.35 0.40 rg 58.0 404.3 Td (4. A citation is merely a lead to inspect, never proof that the statement is true.) Tj ET
+BT /F1 6.8 Tf 0.30 0.35 0.40 rg 58.0 395.8 Td (5. The senior-editor check is mandatory: never ship unverified claims to clients or stakeholders.) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 48.0 42.0 Td (FlyRank General AI Fluency  -  Research & Verification: Trust, But Check  -  Jezreal Momoh) Tj ET
+BT /F1 8.0 Tf 0.25 0.25 0.25 rg 509.0 42.0 Td (Page 3 of 3) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Contents 11 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000193 00000 n 
+0000000263 00000 n 
+0000000338 00000 n 
+0000000406 00000 n 
+0000000479 00000 n 
+0000005725 00000 n 
+0000005885 00000 n 
+0000010664 00000 n 
+0000010825 00000 n 
+0000015832 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+15994
+%%EOF
