@@ -64,8 +64,11 @@ async def say_hello(ctx: inngest.Context) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Stage 2 & 3: make-report Function (with Retries & Failure Simulation)
+# Stage 3: Jobs Fail. Watch the Retry & Bad Input Rejection
 # ---------------------------------------------------------------------------
+# Requirement: A wrong input must be rejected at the door; only a wrong moment deserves a retry.
+# - topic == 'fail': raises RuntimeError('The report oven is broken!') and retries with backoff (retries=2).
+# - missing topic: returns 400 Bad Request immediately at the door, with no Inngest event dispatched.
 @inngest_client.create_function(
     fn_id="make-report",
     trigger=inngest.TriggerEvent(event="report/requested"),
