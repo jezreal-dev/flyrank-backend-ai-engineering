@@ -58,10 +58,15 @@ def init_db(conn: sqlite3.Connection):
         CREATE TABLE IF NOT EXISTS reports (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             path TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'done',
             created_at TEXT NOT NULL
         )
         """
     )
+    cursor.execute("PRAGMA table_info(reports)")
+    columns = [col[1] for col in cursor.fetchall()]
+    if "status" not in columns:
+        cursor.execute("ALTER TABLE reports ADD COLUMN status TEXT NOT NULL DEFAULT 'done'")
     conn.commit()
 
 

@@ -82,6 +82,26 @@ def run_tests():
     assert data3["id"] != report_id_1, f"Expected new ID, got {data3['id']}"
     print(f"✓ Forced request generated fresh Report #{data3['id']} (201 Created)")
 
+    print("\n=== 9. Testing Stretch Async Background Job (POST /reports/async) ===")
+    res_async = client.post("/reports/async")
+    print("Async POST /reports/async status:", res_async.status_code)
+    print("Async POST /reports/async body:", res_async.json())
+    assert res_async.status_code == 202
+    async_id = res_async.json()["id"]
+    assert res_async.json()["status"] == "pending"
+
+    # Poll status
+    res_poll = client.get(f"/reports/{async_id}")
+    assert res_poll.status_code == 200
+    print(f"✓ Async report #{async_id} status polled: {res_poll.json()['status']}")
+    assert res_poll.json()["status"] in ["pending", "done"]
+
+    # Verify PDF file download
+    res_async_file = client.get(f"/reports/{async_id}/file")
+    assert res_async_file.status_code == 200
+    assert res_async_file.headers["content-type"] == "application/pdf"
+    print(f"✓ Async report #{async_id} generated PDF downloaded ({len(res_async_file.content)} bytes)")
+
     print("\n=== ALL TESTS PASSED SUCCESSFULLY! ===")
 
 
